@@ -48,16 +48,19 @@ Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entrete
 
 ### Pré-requisitos
 - [Node.js](https://nodejs.org/) 18+ instalado
-- npm, pnpm ou yarn
 
-### Instalação
+### Jeito rápido (Windows)
+
+Dê duplo clique em **`start.bat`** — ele instala as dependências na primeira vez e abre o servidor automaticamente.
+
+### Via terminal
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/hub-entretenimento.git
+git clone https://github.com/viniciusandradedev0/hub-entretenimento.git
 cd hub-entretenimento
 
-# Instale as dependências
+# Instale as dependências (só na primeira vez)
 npm install
 
 # Rode o servidor de desenvolvimento
