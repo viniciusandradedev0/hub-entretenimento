@@ -3,7 +3,7 @@ import { Search, X } from 'lucide-react'
 /**
  * Campo de busca global. Controlado por `value` e `onChange`.
  */
-export function SearchBar({ value, onChange }) {
+export function SearchBar({ value, onChange, inputRef }) {
   return (
     <div className="relative flex-1 min-w-0" role="search">
       <Search
@@ -12,6 +12,7 @@ export function SearchBar({ value, onChange }) {
         aria-hidden="true"
       />
       <input
+        ref={inputRef}
         type="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -29,16 +30,23 @@ export function SearchBar({ value, onChange }) {
           transition-colors
         "
       />
-      {value && (
+      {value ? (
         <button
           type="button"
           onClick={() => onChange('')}
           aria-label="Limpar busca"
-          title="Limpar"
+          title="Limpar (Esc)"
           className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded text-gray-400 dark:text-muted hover:text-gray-900 dark:hover:text-text transition-colors"
         >
           <X size={15} aria-hidden="true" />
         </button>
+      ) : (
+        <kbd
+          aria-hidden="true"
+          className="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-medium text-gray-400 dark:text-muted border border-gray-300 dark:border-border bg-white dark:bg-surface leading-none"
+        >
+          /
+        </kbd>
       )}
     </div>
   )

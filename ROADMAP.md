@@ -249,6 +249,7 @@ Ideias para depois do Sprint 15 ou para intercalar:
 - **Recomendações por similaridade** — "Quem curtiu itch.io também usa Game Jolt"
 - **Integração com Notion** — exportar favoritos para database do Notion via API
 - **Extensão de navegador** — botão para "adicionar site atual ao Hub"
+- **Destaque em vídeo** — card de destaque rotativo no topo com `<iframe>` embedado de conteúdo curado (YouTube, Internet Archive). Vídeo escolhido deterministicamente por data (mesmo algoritmo da "Fonte do dia"). Sem autoplay — o usuário clica para iniciar. Lista de embeds curados em `src/data/featured-videos.json` com campos `{ id, title, embedUrl, platform, category }`. Colapsável para não ocupar espaço quem não quiser. Não usa API — apenas iframes públicos de plataformas que permitem embedding gratuito.
 
 ---
 

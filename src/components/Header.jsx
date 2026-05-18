@@ -13,6 +13,7 @@ export function Header({
   onThemeToggle,
   favoritesCount,
   onFavoritesToggle,
+  inputRef,
 }) {
   return (
     <header
@@ -34,7 +35,7 @@ export function Header({
           </h1>
         </div>
 
-        <SearchBar value={searchQuery} onChange={onSearchChange} />
+        <SearchBar value={searchQuery} onChange={onSearchChange} inputRef={inputRef} />
 
         <div className="flex items-center gap-1 flex-shrink-0">
           <ThemeToggle isDark={isDark} onToggle={onThemeToggle} />

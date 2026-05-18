@@ -2,12 +2,13 @@ import { useState } from 'react'
 import { Heart, Copy, ExternalLink } from 'lucide-react'
 import clsx from 'clsx'
 import { resolveIcon } from '../lib/icons.js'
+import { highlight } from '../lib/highlight.jsx'
 
 /**
  * Card de uma fonte. Mostra ícone, nome, descrição, tags (bestFor),
  * idioma, botões de favoritar e copiar termos de busca.
  */
-export function Card({ source, isFavorite, onToggleFavorite, onCopyTerms }) {
+export function Card({ source, isFavorite, onToggleFavorite, onCopyTerms, searchTerm = '' }) {
   const [imgError, setImgError] = useState(false)
   const Icon = resolveIcon(source.icon)
 
@@ -70,7 +71,7 @@ export function Card({ source, isFavorite, onToggleFavorite, onCopyTerms }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 font-semibold text-gray-900 dark:text-text hover:text-primary dark:hover:text-primary transition-colors"
           >
-            <span className="truncate">{source.name}</span>
+            <span className="truncate">{highlight(source.name, searchTerm)}</span>
             <ExternalLink size={13} className="opacity-50 flex-shrink-0" aria-hidden="true" />
           </a>
 
@@ -112,7 +113,7 @@ export function Card({ source, isFavorite, onToggleFavorite, onCopyTerms }) {
 
       {/* ─── Descrição ─── */}
       <p className="text-sm text-gray-600 dark:text-muted leading-relaxed flex-1">
-        {source.description}
+        {highlight(source.description, searchTerm)}
       </p>
 
       {/* ─── Footer: termos + botão copiar ─── */}

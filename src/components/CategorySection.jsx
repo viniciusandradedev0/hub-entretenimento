@@ -5,7 +5,7 @@ import { resolveIcon } from '../lib/icons.js'
  * Seção de uma categoria. Mostra ícone, nome, contagem e grid de cards.
  * Se sources estiver vazio, retorna null (oculta a seção).
  */
-export function CategorySection({ category, sources, favorites, onToggleFavorite, onCopyTerms }) {
+export function CategorySection({ category, sources, favorites, onToggleFavorite, onCopyTerms, searchTerm = '' }) {
   if (!sources.length) return null
 
   const Icon = resolveIcon(category.icon)
@@ -35,6 +35,7 @@ export function CategorySection({ category, sources, favorites, onToggleFavorite
             isFavorite={favorites.has(source.id)}
             onToggleFavorite={onToggleFavorite}
             onCopyTerms={onCopyTerms}
+            searchTerm={searchTerm}
           />
         ))}
       </div>

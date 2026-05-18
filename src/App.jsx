@@ -1,10 +1,11 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import sourcesData from './data/sources.json'
 import { CATEGORIES } from './lib/categories.js'
 import { useFavorites } from './hooks/useFavorites.js'
 import { useTheme } from './hooks/useTheme.js'
 import { useSearch } from './hooks/useSearch.js'
 import { useClipboard } from './hooks/useClipboard.js'
+import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts.js'
 import { Header } from './components/Header.jsx'
 import { CategorySection } from './components/CategorySection.jsx'
 import { FavoritesPanel } from './components/FavoritesPanel.jsx'
@@ -21,6 +22,15 @@ export default function App() {
   const { isDark, toggleTheme } = useTheme()
   const { results, isSearching, debouncedQuery } = useSearch(searchQuery, sourcesData)
   const { copyToClipboard, toastMessage, clearToast } = useClipboard()
+
+  const searchInputRef = useRef(null)
+
+  useKeyboardShortcuts({
+    searchInputRef,
+    searchQuery,
+    onClearSearch: () => setSearchQuery(''),
+    onToggleFavorites: () => setFavoritesOpen((o) => !o),
+  })
 
   // Aplica filtros de idioma e "só favoritos" sobre os resultados da busca
   const filteredResults = useMemo(() => {
@@ -41,8 +51,6 @@ export default function App() {
     return map
   }, [filteredResults])
 
-  const totalResults = results.length
-
   return (
     <div className="min-h-screen flex flex-col">
       <Header
@@ -52,6 +60,7 @@ export default function App() {
         onThemeToggle={toggleTheme}
         favoritesCount={favorites.size}
         onFavoritesToggle={() => setFavoritesOpen((o) => !o)}
+        inputRef={searchInputRef}
       />
 
       <main className="container-x flex-1 py-6 sm:py-8 space-y-10">
@@ -64,20 +73,26 @@ export default function App() {
           totalAll={sourcesData.length}
         />
 
-        {isSearching && (
-          <div
-            className="rounded-lg bg-primary/10 border border-primary/20 px-4 py-3 text-sm"
-            aria-live="polite"
-          >
-            <strong className="text-primary">{totalResults}</strong>{' '}
+        {(isSearching || onlyFavorites || activeLanguage !== 'all') && filteredResults.length === 0 && (
+          <div className="rounded-xl border border-dashed border-gray-300 dark:border-border px-6 py-10 text-center space-y-3">
+            <p className="text-2xl">🔍</p>
+            <p className="font-semibold text-gray-800 dark:text-text">Nenhuma fonte encontrada</p>
+            <p className="text-sm text-gray-500 dark:text-muted">
+              {isSearching && <>Nenhum resultado para <strong className="text-primary">"{debouncedQuery}"</strong>.</>}
+              {(onlyFavorites || activeLanguage !== 'all') && ' Tente ajustar os filtros.'}
+            </p>
+            <p className="text-xs text-gray-400 dark:text-muted">
+              Sugestões: <em>indie, documentário, jogos browser, podcast…</em>
+            </p>
+          </div>
+        )}
+
+        {isSearching && filteredResults.length > 0 && (
+          <div className="rounded-lg bg-primary/10 border border-primary/20 px-4 py-3 text-sm" aria-live="polite">
+            <strong className="text-primary">{filteredResults.length}</strong>{' '}
             <span className="text-gray-700 dark:text-text">
-              resultado{totalResults !== 1 ? 's' : ''} para "{debouncedQuery}"
+              resultado{filteredResults.length !== 1 ? 's' : ''} para "{debouncedQuery}"
             </span>
-            {totalResults === 0 && (
-              <span className="block mt-1 text-gray-600 dark:text-muted">
-                Tente termos como: <em>indie, podcasts, documentário, jogos browser…</em>
-              </span>
-            )}
           </div>
         )}
 
@@ -89,6 +104,7 @@ export default function App() {
             favorites={favorites}
             onToggleFavorite={toggleFavorite}
             onCopyTerms={copyToClipboard}
+            searchTerm={debouncedQuery}
           />
         ))}
       </main>
