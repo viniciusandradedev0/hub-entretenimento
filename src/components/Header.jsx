@@ -1,4 +1,4 @@
-import { Heart, Tv } from 'lucide-react'
+import { Heart, Tv, Shuffle } from 'lucide-react'
 import clsx from 'clsx'
 import { SearchBar } from './SearchBar.jsx'
 import { ThemeToggle } from './ThemeToggle.jsx'
@@ -13,6 +13,7 @@ export function Header({
   onThemeToggle,
   favoritesCount,
   onFavoritesToggle,
+  onSurpriseMe,
   inputRef,
 }) {
   return (
@@ -38,6 +39,18 @@ export function Header({
         <SearchBar value={searchQuery} onChange={onSearchChange} inputRef={inputRef} />
 
         <div className="flex items-center gap-1 flex-shrink-0">
+          {onSurpriseMe && (
+            <button
+              type="button"
+              onClick={onSurpriseMe}
+              aria-label="Surpreenda-me com uma fonte aleatória"
+              title="Surpreenda-me"
+              className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors text-gray-600 dark:text-muted hover:bg-gray-100 dark:hover:bg-background hover:text-primary"
+            >
+              <Shuffle size={18} aria-hidden="true" />
+            </button>
+          )}
+
           <ThemeToggle isDark={isDark} onToggle={onThemeToggle} />
 
           <button

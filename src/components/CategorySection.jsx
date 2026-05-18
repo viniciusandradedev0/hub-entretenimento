@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Card } from './Card.jsx'
 import { resolveIcon } from '../lib/icons.js'
 
@@ -5,10 +6,32 @@ import { resolveIcon } from '../lib/icons.js'
  * Seção de uma categoria. Mostra ícone, nome, contagem e grid de cards.
  * Se sources estiver vazio, retorna null (oculta a seção).
  */
-export function CategorySection({ category, sources, favorites, onToggleFavorite, onCopyTerms, searchTerm = '', onOpenModal = undefined }) {
+export function CategorySection({
+  category,
+  sources,
+  favorites,
+  onToggleFavorite,
+  onCopyTerms,
+  searchTerm = '',
+  onOpenModal = undefined,
+  sortMode = 'original',
+  clickStats = {},
+  onTrackClick = undefined,
+}) {
   if (!sources.length) return null
 
   const Icon = resolveIcon(category.icon)
+
+  // Aplica ordenação conforme modo selecionado
+  const sortedSources = useMemo(() => {
+    if (sortMode === 'alphabetic') {
+      return [...sources].sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'))
+    }
+    if (sortMode === 'most-clicked') {
+      return [...sources].sort((a, b) => (clickStats[b.id] || 0) - (clickStats[a.id] || 0))
+    }
+    return sources
+  }, [sources, sortMode, clickStats])
 
   return (
     <section id={category.slug} className="scroll-mt-32" aria-labelledby={`heading-${category.slug}`}>
@@ -28,7 +51,7 @@ export function CategorySection({ category, sources, favorites, onToggleFavorite
       </header>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {sources.map((source) => (
+        {sortedSources.map((source) => (
           <Card
             key={source.id}
             source={source}
@@ -37,6 +60,7 @@ export function CategorySection({ category, sources, favorites, onToggleFavorite
             onCopyTerms={onCopyTerms}
             searchTerm={searchTerm}
             onOpenModal={onOpenModal}
+            onTrackClick={onTrackClick}
           />
         ))}
       </div>

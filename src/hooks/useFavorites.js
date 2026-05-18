@@ -4,7 +4,7 @@ const STORAGE_KEY = 'hub:favorites'
 
 /**
  * Gerencia a lista de IDs favoritados persistida no localStorage.
- * Retorna: { favorites (Set), toggleFavorite, isFavorite, clearFavorites }.
+ * Retorna: { favorites (Set), toggleFavorite, addFavorites, isFavorite, clearFavorites }.
  */
 export function useFavorites() {
   const [favorites, setFavorites] = useState(() => {
@@ -33,9 +33,20 @@ export function useFavorites() {
     })
   }, [])
 
+  const addFavorites = useCallback((ids) => {
+    if (!ids || !ids[Symbol.iterator]) return
+    setFavorites((prev) => {
+      const next = new Set(prev)
+      for (const id of ids) {
+        if (typeof id === 'string' && id.length > 0) next.add(id)
+      }
+      return next
+    })
+  }, [])
+
   const isFavorite = useCallback((id) => favorites.has(id), [favorites])
 
   const clearFavorites = useCallback(() => setFavorites(new Set()), [])
 
-  return { favorites, toggleFavorite, isFavorite, clearFavorites }
+  return { favorites, toggleFavorite, addFavorites, isFavorite, clearFavorites }
 }

@@ -16,10 +16,10 @@
 | 1 | Quick wins visuais | ✅ |
 | 2 | Busca melhorada | ✅ |
 | 3 | Navegação e orientação | ✅ |
-| 4 | Card expandido + modal | ⏳ próximo |
-| 5 | Diversão e descoberta | ⬜ |
-| 6 | Favoritos avançados | ⬜ |
-| 7 | Conteúdo e curadoria | ⬜ |
+| 4 | Card expandido + modal | ✅ |
+| 5 | Diversão e descoberta | ✅ |
+| 6 | Favoritos avançados | ✅ |
+| 7 | Conteúdo e curadoria | ⏳ próximo |
 | 8 | Coleções personalizadas | ⬜ |
 | 9 | Compartilhamento | ⬜ |
 | 10 | Qualidade: Lint + Format | ⬜ |
@@ -265,4 +265,4 @@ feat(s3): quick-nav e back-to-top
 ---
 
 *Atualizado em: 2026-05-18*
-*Próximo sprint: **Sprint 4 — Card expandido + modal***
+*Próximo sprint: **Sprint 7 — Conteúdo e curadoria***
