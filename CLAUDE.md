@@ -32,10 +32,11 @@
 - **Build:** Vite (`npm run build`)
 - **Hospedagem alvo:** Vercel / Netlify / GitHub Pages
 
-### ⚠️ Importante sobre o estado atual
-- O projeto **já possui HTML e CSS iniciais** — esses arquivos devem ser **preservados e adaptados**, não reescritos do zero
-- A migração para Tailwind deve ser **incremental**, mantendo as classes/estilos existentes quando fizerem sentido
-- **Pergunte antes de remover** estilos ou estruturas já criadas
+### ⚠️ Estado atual do projeto (atualizado 2026-05-18)
+- O projeto está em **React + Vite + Tailwind** (migração concluída na v2.0)
+- **8 sprints entregues** — veja o ROADMAP.md e o HISTORICO.md para o estado completo
+- **44 fontes** em `sources.json`, todas com o campo `lastVerified`
+- Antes de modificar qualquer componente, leia o arquivo para entender as props atuais (Card.jsx tem 9 props)
 
 ### Restrições
 - ❌ **Sem APIs pagas** ou que exijam chave de acesso
@@ -46,33 +47,56 @@
 
 ---
 
-## 📁 Estrutura de Pastas Sugerida
+## 📁 Estrutura de Pastas Atual
 
 ```
 /
-├── public/
+├── scripts/
+│   └── check-links.js       # npm run check-links — verifica todas as URLs
 ├── src/
 │   ├── components/
-│   │   ├── Card.jsx
+│   │   ├── Card.jsx          # 9 props: source, isFavorite, onToggleFavorite, onCopyTerms,
+│   │   │                     #   searchTerm, onOpenModal, onTrackClick, onAddToCollection, collections
 │   │   ├── CategorySection.jsx
+│   │   ├── CollectionsPanel.jsx
+│   │   ├── DailyPick.jsx
+│   │   ├── FavoritesPanel.jsx
+│   │   ├── FilterBar.jsx
+│   │   ├── Header.jsx
+│   │   ├── NavBar.jsx
 │   │   ├── SearchBar.jsx
+│   │   ├── SortSelector.jsx
+│   │   ├── SourceModal.jsx
+│   │   ├── TagFilter.jsx
 │   │   ├── ThemeToggle.jsx
-│   │   └── FavoritesPanel.jsx
+│   │   ├── BackToTop.jsx
+│   │   └── Toast.jsx
 │   ├── data/
-│   │   └── sources.json
+│   │   └── sources.json      # 44 fontes, schema com lastVerified
 │   ├── hooks/
+│   │   ├── useActiveSection.js
+│   │   ├── useClickStats.js
+│   │   ├── useClipboard.js
+│   │   ├── useCollections.js
 │   │   ├── useFavorites.js
-│   │   ├── useTheme.js
-│   │   └── useSearch.js
+│   │   ├── useKeyboardShortcuts.js
+│   │   ├── useNotes.js
+│   │   ├── useSearch.js
+│   │   └── useTheme.js
+│   ├── lib/
+│   │   ├── categories.js
+│   │   ├── daily.js
+│   │   ├── highlight.jsx
+│   │   └── icons.js          # 15 ícones registrados
 │   ├── styles/
-│   │   └── index.css        # Estilos globais + diretivas Tailwind
+│   │   └── index.css
 │   ├── App.jsx
 │   └── main.jsx
+├── .gitattributes
 ├── index.html
 ├── tailwind.config.js
 ├── vite.config.js
-├── CLAUDE.md
-└── README.md
+└── CLAUDE.md
 ```
 
 ---
@@ -93,9 +117,15 @@ Toda fonte de conteúdo deve seguir este schema:
   "searchTerms": ["termo 1", "termo 2"],
   "icon": "nome-do-icone-lucide",
   "free": true,
-  "legal": true
+  "legal": true,
+  "lastVerified": "YYYY-MM-DD"
 }
 ```
+
+**Ícones disponíveis em `icons.js`:**
+`Film`, `Music`, `Mic`, `Headphones`, `BookOpen`, `Gamepad2`, `GraduationCap`, `Youtube`, `Archive`, `Search`, `Library`, `Code`, `Theater`, `Landmark`, `Tv`
+
+Para adicionar um novo ícone: importe-o em `src/lib/icons.js` e registre-o no objeto `ICONS`.
 
 ---
 
@@ -228,26 +258,29 @@ export default {
 
 ---
 
-## 🗺️ Roadmap
+## 🗺️ Roadmap (resumo)
 
-### v1.0 — MVP
-- [x] Estrutura base + categorias (HTML/CSS inicial já criado)
-- [ ] Migração para React + Vite
-- [ ] Integração do Tailwind preservando estilos atuais
-- [ ] Renderização dos cards a partir do JSON
-- [ ] Busca global
-- [ ] Favoritos (localStorage)
-- [ ] Toggle de tema
+Veja o arquivo `ROADMAP.md` para o plano completo com 15 sprints.
 
-### v1.1
-- [ ] Filtros por idioma e tipo de conteúdo
-- [ ] Botão "copiar termo de busca"
-- [ ] PWA (instalável offline)
+| Sprint | Tema | Status |
+|--------|------|--------|
+| 1–8 | Quick wins, busca, navegação, modal, descoberta, favoritos, curadoria, coleções | ✅ |
+| 9 | Compartilhamento via URL (`?share=<base64>`) | ⏳ próximo |
+| 10 | ESLint + Prettier + Husky | ⬜ |
+| 11 | TypeScript | ⬜ |
+| 12 | Testes (Vitest + Testing Library) | ⬜ |
+| 13 | CI/CD + Deploy automático | ⬜ |
+| 14 | PWA instalável | ⬜ |
+| 15 | i18n + Acessibilidade avançada | ⬜ |
 
-### v2.0 (futuro)
-- [ ] Sync de favoritos via conta (opcional, com backend)
-- [ ] Recomendações baseadas em uso
-- [ ] Extensão de navegador
+### Chaves de localStorage em uso
+| Chave | Hook | Conteúdo |
+|-------|------|---------|
+| `hub:favorites` | useFavorites | `string[]` de IDs |
+| `hub:notes` | useNotes | `{ [sourceId]: string }` |
+| `hub:click-stats` | useClickStats | `{ [sourceId]: number }` |
+| `hub:collections` | useCollections | `[{ id, name, sourceIds[] }]` |
+| `theme` | useTheme | `"dark" \| "light"` |
 
 ---
 
@@ -260,5 +293,6 @@ export default {
 
 ---
 
-**Última atualização:** 2026-05-17
+**Última atualização:** 2026-05-18
 **Mantenedor:** Vinicius
+**Sprint atual:** 8 concluído — próximo: Sprint 9 (Compartilhamento)
