@@ -25,6 +25,12 @@ export function Card({ source, isFavorite, onToggleFavorite, onCopyTerms }) {
     multi: 'Multi',
   }[source.language] || source.language
 
+  const langTitle = {
+    'pt-BR': 'Conteúdo em português brasileiro',
+    en: 'Conteúdo em inglês',
+    multi: 'Conteúdo disponível em múltiplos idiomas',
+  }[source.language] || `Idioma: ${source.language}`
+
   const handleCopy = (e) => {
     e.preventDefault()
     onCopyTerms(source.searchTerms.join('\n'))
@@ -69,12 +75,16 @@ export function Card({ source, isFavorite, onToggleFavorite, onCopyTerms }) {
           </a>
 
           <div className="flex flex-wrap gap-1 mt-1">
-            <span className="text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded bg-primary/10 text-primary dark:bg-primary/20">
+            <span
+              title={langTitle}
+              className="text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded bg-primary/10 text-primary dark:bg-primary/20"
+            >
               {langLabel}
             </span>
             {source.bestFor.slice(0, 3).map((tag) => (
               <span
                 key={tag}
+                title={`Ideal para: ${tag}`}
                 className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-gray-100 dark:bg-background text-gray-700 dark:text-muted"
               >
                 {tag}

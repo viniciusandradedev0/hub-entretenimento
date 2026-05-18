@@ -13,8 +13,8 @@
 
 | Sprint | Tema | Status |
 |--------|------|--------|
-| 1 | Quick wins visuais | ⏳ próximo |
-| 2 | Busca melhorada | ⬜ |
+| 1 | Quick wins visuais | ✅ |
+| 2 | Busca melhorada | ⏳ próximo |
 | 3 | Navegação e orientação | ⬜ |
 | 4 | Card expandido + modal | ⬜ |
 | 5 | Diversão e descoberta | ⬜ |
@@ -263,5 +263,5 @@ feat(s3): quick-nav e back-to-top
 
 ---
 
-*Atualizado em: 2026-05-17*
-*Próximo sprint: **Sprint 1 — Quick wins visuais***
+*Atualizado em: 2026-05-18*
+*Próximo sprint: **Sprint 2 — Busca melhorada***
