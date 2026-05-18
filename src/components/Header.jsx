@@ -1,4 +1,4 @@
-import { Heart, Tv, Shuffle } from 'lucide-react'
+import { Heart, Tv, Shuffle, FolderOpen } from 'lucide-react'
 import clsx from 'clsx'
 import { SearchBar } from './SearchBar.jsx'
 import { ThemeToggle } from './ThemeToggle.jsx'
@@ -15,6 +15,8 @@ export function Header({
   onFavoritesToggle,
   onSurpriseMe,
   inputRef,
+  onCollectionsToggle,
+  collectionsCount,
 }) {
   return (
     <header
@@ -52,6 +54,31 @@ export function Header({
           )}
 
           <ThemeToggle isDark={isDark} onToggle={onThemeToggle} />
+
+          {onCollectionsToggle && (
+            <button
+              type="button"
+              onClick={onCollectionsToggle}
+              aria-label={`Coleções (${collectionsCount ?? 0})`}
+              title="Minhas coleções"
+              className={clsx(
+                'relative w-9 h-9 rounded-lg flex items-center justify-center transition-colors',
+                collectionsCount > 0
+                  ? 'text-primary hover:bg-primary/10'
+                  : 'text-gray-600 dark:text-muted hover:bg-gray-100 dark:hover:bg-background hover:text-gray-900 dark:hover:text-text'
+              )}
+            >
+              <FolderOpen size={18} aria-hidden="true" />
+              {collectionsCount > 0 && (
+                <span
+                  className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-primary text-white text-[10px] font-bold flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  {collectionsCount}
+                </span>
+              )}
+            </button>
+          )}
 
           <button
             type="button"

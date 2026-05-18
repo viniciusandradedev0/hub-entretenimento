@@ -8,6 +8,7 @@ import { useClipboard } from './hooks/useClipboard.js'
 import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts.js'
 import { useNotes } from './hooks/useNotes.js'
 import { useClickStats } from './hooks/useClickStats.js'
+import { useCollections } from './hooks/useCollections.js'
 import { getDailyPick } from './lib/daily.js'
 import { Header } from './components/Header.jsx'
 import { NavBar } from './components/NavBar.jsx'
@@ -20,6 +21,7 @@ import { SortSelector } from './components/SortSelector.jsx'
 import { DailyPick } from './components/DailyPick.jsx'
 import { BackToTop } from './components/BackToTop.jsx'
 import { SourceModal } from './components/SourceModal.jsx'
+import { CollectionsPanel } from './components/CollectionsPanel.jsx'
 
 // Calculado uma vez por carregamento — muda à meia-noite automaticamente
 const dailySource = getDailyPick(sourcesData)
@@ -32,6 +34,7 @@ export default function App() {
   const [activeTags, setActiveTags] = useState(new Set())
   const [sortMode, setSortMode] = useState('original')
   const [modalSource, setModalSource] = useState(null)
+  const [collectionsOpen, setCollectionsOpen] = useState(false)
 
   const { favorites, toggleFavorite, addFavorites } = useFavorites()
   const { isDark, toggleTheme } = useTheme()
@@ -39,6 +42,14 @@ export default function App() {
   const { copyToClipboard, toastMessage, clearToast } = useClipboard()
   const { notes, setNote } = useNotes()
   const { stats: clickStats, trackClick } = useClickStats()
+  const {
+    collections,
+    createCollection,
+    renameCollection,
+    deleteCollection,
+    addToCollection,
+    removeFromCollection,
+  } = useCollections()
   const searchInputRef = useRef(null)
 
   // Atalhos desativados quando o modal está aberto
@@ -113,6 +124,8 @@ export default function App() {
         onFavoritesToggle={() => setFavoritesOpen((o) => !o)}
         inputRef={searchInputRef}
         onSurpriseMe={handleSurpriseMe}
+        onCollectionsToggle={() => setCollectionsOpen((o) => !o)}
+        collectionsCount={collections.length}
       />
 
       <NavBar />
@@ -189,6 +202,8 @@ export default function App() {
                 sortMode={sortMode}
                 clickStats={clickStats}
                 onTrackClick={trackClick}
+                collections={collections}
+                onAddToCollection={addToCollection}
               />
             ))}
           </div>
@@ -208,6 +223,18 @@ export default function App() {
         onCopyTerms={copyToClipboard}
         onExport={handleExport}
         onImport={handleImport}
+      />
+
+      <CollectionsPanel
+        isOpen={collectionsOpen}
+        onClose={() => setCollectionsOpen(false)}
+        collections={collections}
+        allSources={sourcesData}
+        onCreateCollection={createCollection}
+        onRenameCollection={renameCollection}
+        onDeleteCollection={deleteCollection}
+        onRemoveFromCollection={removeFromCollection}
+        onCopyTerms={copyToClipboard}
       />
 
       <Toast message={toastMessage} onDismiss={clearToast} />

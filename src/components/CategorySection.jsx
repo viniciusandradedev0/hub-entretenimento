@@ -17,6 +17,8 @@ export function CategorySection({
   sortMode = 'original',
   clickStats = {},
   onTrackClick = undefined,
+  collections = [],
+  onAddToCollection = undefined,
 }) {
   if (!sources.length) return null
 
@@ -61,6 +63,8 @@ export function CategorySection({
             searchTerm={searchTerm}
             onOpenModal={onOpenModal}
             onTrackClick={onTrackClick}
+            collections={collections}
+            onAddToCollection={onAddToCollection}
           />
         ))}
       </div>

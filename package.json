@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check-links": "node scripts/check-links.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

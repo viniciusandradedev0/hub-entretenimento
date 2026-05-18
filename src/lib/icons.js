@@ -1,6 +1,6 @@
 import {
   Film, Music, Mic, Headphones, BookOpen, Gamepad2, GraduationCap,
-  Youtube, Archive, Search,
+  Youtube, Archive, Search, Library, Code, Theater, Landmark, Tv,
 } from 'lucide-react'
 
 /**
@@ -18,6 +18,11 @@ export const ICONS = {
   Youtube,
   Archive,
   Search,
+  Library,
+  Code,
+  Theater,
+  Landmark,
+  Tv,
 }
 
 /** Resolve uma string como "Film" para o componente. Fallback: Film. */

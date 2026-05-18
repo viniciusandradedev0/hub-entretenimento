@@ -10,7 +10,8 @@
     "searchTerms": ["Pluto TV filmes grátis", "Pluto TV séries online", "Pluto TV PT-BR"],
     "icon": "Film",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "tubi",
@@ -23,7 +24,8 @@
     "searchTerms": ["Tubi filmes grátis legendado", "Tubi TV séries completas"],
     "icon": "Film",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "plex-free",
@@ -36,7 +38,8 @@
     "searchTerms": ["Plex TV filmes grátis", "Plex Watch Free streaming"],
     "icon": "Film",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "kanopy",
@@ -49,7 +52,8 @@
     "searchTerms": ["Kanopy filmes arte", "Kanopy biblioteca acesso"],
     "icon": "Film",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "internet-archive-movies",
@@ -62,7 +66,8 @@
     "searchTerms": ["Internet Archive filmes domínio público", "archive.org cinema clássico"],
     "icon": "Archive",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "youtube-movies",
@@ -75,7 +80,8 @@
     "searchTerms": ["YouTube filmes completos grátis", "YouTube Movies legendado"],
     "icon": "Youtube",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "crackle",
@@ -88,7 +94,22 @@
     "searchTerms": ["Crackle filmes grátis online", "Crackle séries originais Sony"],
     "icon": "Film",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
+  },
+  {
+    "id": "tv-brasil-play",
+    "category": "filmes",
+    "name": "TV Brasil Play",
+    "url": "https://tvbrasilplay.com.br",
+    "description": "Plataforma de streaming gratuita da EBC com programas, documentários e filmes da TV Brasil.",
+    "bestFor": ["Documentários", "Cultura", "Brasil"],
+    "language": "pt-BR",
+    "searchTerms": ["TV Brasil Play streaming gratuito", "EBC filmes documentários online"],
+    "icon": "Tv",
+    "free": true,
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
 
   {
@@ -102,7 +123,8 @@
     "searchTerms": ["Spotify plano gratuito", "Spotify free tier Brasil"],
     "icon": "Music",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "youtube-music-free",
@@ -115,7 +137,8 @@
     "searchTerms": ["YouTube Music gratuito", "músicas grátis YouTube Music"],
     "icon": "Music",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "bandcamp",
@@ -128,7 +151,8 @@
     "searchTerms": ["Bandcamp músicas grátis ouvir", "Bandcamp artistas indie"],
     "icon": "Music",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "jamendo",
@@ -141,7 +165,8 @@
     "searchTerms": ["Jamendo música Creative Commons grátis", "Jamendo download legal"],
     "icon": "Music",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "free-music-archive",
@@ -154,7 +179,8 @@
     "searchTerms": ["Free Music Archive download", "música livre criadores conteúdo"],
     "icon": "Music",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "soundcloud",
@@ -167,7 +193,8 @@
     "searchTerms": ["SoundCloud músicas gratuitas", "artistas independentes SoundCloud"],
     "icon": "Music",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "deezer-free",
@@ -180,7 +207,8 @@
     "searchTerms": ["Deezer gratuito PT-BR", "Deezer músicas grátis"],
     "icon": "Music",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "internet-archive-audio",
@@ -193,7 +221,22 @@
     "searchTerms": ["Internet Archive música gratuita", "concertos ao vivo grátis"],
     "icon": "Archive",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
+  },
+  {
+    "id": "palco-mp3",
+    "category": "musica",
+    "name": "Palco MP3",
+    "url": "https://www.palcomp3.com.br",
+    "description": "Maior plataforma de música independente brasileira. Mais de 1 milhão de músicas grátis para ouvir e baixar.",
+    "bestFor": ["Música brasileira", "Independente", "Download"],
+    "language": "pt-BR",
+    "searchTerms": ["Palco MP3 música brasileira grátis", "bandas independentes download"],
+    "icon": "Music",
+    "free": true,
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
 
   {
@@ -207,7 +250,8 @@
     "searchTerms": ["Spotify podcasts gratuitos PT-BR", "melhores podcasts Brasil"],
     "icon": "Mic",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "apple-podcasts-web",
@@ -220,7 +264,8 @@
     "searchTerms": ["Apple Podcasts navegador web", "podcasts Apple PT-BR online"],
     "icon": "Mic",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "podchaser",
@@ -233,7 +278,8 @@
     "searchTerms": ["Podchaser descobrir podcasts", "reviews podcasts Podchaser"],
     "icon": "Mic",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "listen-notes",
@@ -246,7 +292,8 @@
     "searchTerms": ["Listen Notes buscar podcasts", "search engine podcasts gratuito"],
     "icon": "Search",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "librivox",
@@ -259,7 +306,8 @@
     "searchTerms": ["LibriVox audiobooks grátis", "audiolivros domínio público"],
     "icon": "Headphones",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "projeto-gutenberg",
@@ -272,7 +320,8 @@
     "searchTerms": ["Projeto Gutenberg audiolivros grátis", "Gutenberg human-read audio books"],
     "icon": "BookOpen",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
 
   {
@@ -286,7 +335,8 @@
     "searchTerms": ["itch.io jogos indie grátis", "itch.io free games download"],
     "icon": "Gamepad2",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "epic-games-free",
@@ -299,7 +349,8 @@
     "searchTerms": ["Epic Games jogos grátis semana", "Epic Store free games resgatar"],
     "icon": "Gamepad2",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "newgrounds",
@@ -312,7 +363,8 @@
     "searchTerms": ["Newgrounds jogos browser gratuitos", "Newgrounds games online"],
     "icon": "Gamepad2",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "steam-free-to-play",
@@ -325,7 +377,8 @@
     "searchTerms": ["Steam jogos gratuitos F2P", "Free to Play Steam melhores"],
     "icon": "Gamepad2",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "crazygames",
@@ -338,7 +391,8 @@
     "searchTerms": ["CrazyGames jogos browser sem download", "jogos online gratuitos"],
     "icon": "Gamepad2",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "game-jolt",
@@ -351,7 +405,8 @@
     "searchTerms": ["Game Jolt jogos indie gratuitos", "Game Jolt download grátis"],
     "icon": "Gamepad2",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "poki",
@@ -364,7 +419,8 @@
     "searchTerms": ["Poki jogos online grátis", "Poki jogos mobile browser"],
     "icon": "Gamepad2",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
 
   {
@@ -378,7 +434,8 @@
     "searchTerms": ["YouTube canais educacionais", "Crash Course Kurzgesagt", "documentários YouTube"],
     "icon": "Youtube",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "curiosity-stream-free",
@@ -391,7 +448,8 @@
     "searchTerms": ["Curiosity Stream free tier grátis", "documentários ciência online"],
     "icon": "GraduationCap",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "open-culture",
@@ -404,7 +462,8 @@
     "searchTerms": ["Open Culture cursos grátis", "Open Culture filmes documentários"],
     "icon": "BookOpen",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "coursera-audit",
@@ -417,7 +476,8 @@
     "searchTerms": ["Coursera cursos gratuitos auditoria", "Coursera audit sem certificado"],
     "icon": "GraduationCap",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "mit-ocw",
@@ -430,7 +490,8 @@
     "searchTerms": ["MIT OpenCourseWare grátis", "MIT cursos online gratuitos"],
     "icon": "GraduationCap",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "khan-academy",
@@ -443,7 +504,8 @@
     "searchTerms": ["Khan Academy português PT-BR grátis", "educação online gratuita Khan"],
     "icon": "GraduationCap",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
   },
   {
     "id": "ted",
@@ -456,6 +518,91 @@
     "searchTerms": ["TED talks PT-BR legendado", "palestras TED gratuitas"],
     "icon": "GraduationCap",
     "free": true,
-    "legal": true
+    "legal": true,
+    "lastVerified": "2026-05-18"
+  },
+  {
+    "id": "dominio-publico",
+    "category": "documentarios",
+    "name": "Domínio Público",
+    "url": "https://www.dominiopublico.gov.br",
+    "description": "Biblioteca digital do governo federal brasileiro com obras em domínio público: textos, imagens, sons e vídeos.",
+    "bestFor": ["Domínio público", "Acervo histórico", "Download"],
+    "language": "pt-BR",
+    "searchTerms": ["domínio público obras brasileiras", "acervo público download legal"],
+    "icon": "Library",
+    "free": true,
+    "legal": true,
+    "lastVerified": "2026-05-18"
+  },
+  {
+    "id": "ev-bradesco",
+    "category": "documentarios",
+    "name": "EV – Fundação Bradesco",
+    "url": "https://www.ev.org.br",
+    "description": "Cursos gratuitos online da Fundação Bradesco nas áreas de informática, gestão, educação e cidadania.",
+    "bestFor": ["Cursos gratuitos", "Informática", "Profissionalização"],
+    "language": "pt-BR",
+    "searchTerms": ["Fundação Bradesco cursos gratuitos online", "EV cursos educação profissionalizante"],
+    "icon": "GraduationCap",
+    "free": true,
+    "legal": true,
+    "lastVerified": "2026-05-18"
+  },
+  {
+    "id": "univesp-tv",
+    "category": "documentarios",
+    "name": "Univesp TV",
+    "url": "https://www.youtube.com/@UnivespTV",
+    "description": "Canal oficial da Universidade Virtual do Estado de São Paulo com aulas, palestras e conteúdo acadêmico gratuito.",
+    "bestFor": ["Educação", "Aulas universitárias", "São Paulo"],
+    "language": "pt-BR",
+    "searchTerms": ["Univesp aulas gratuitas YouTube", "universidade virtual SP conteúdo"],
+    "icon": "GraduationCap",
+    "free": true,
+    "legal": true,
+    "lastVerified": "2026-05-18"
+  },
+  {
+    "id": "dio-platform",
+    "category": "documentarios",
+    "name": "DIO",
+    "url": "https://www.dio.me",
+    "description": "Plataforma de educação em tecnologia com cursos gratuitos em programação, cloud, dados e IA.",
+    "bestFor": ["Programação", "Tecnologia", "Bootcamp"],
+    "language": "pt-BR",
+    "searchTerms": ["DIO cursos programação gratuito", "Digital Innovation One bootcamp dev"],
+    "icon": "Code",
+    "free": true,
+    "legal": true,
+    "lastVerified": "2026-05-18"
+  },
+  {
+    "id": "escola-virtual-gov",
+    "category": "documentarios",
+    "name": "Escola Virtual Gov",
+    "url": "https://www.escolavirtual.gov.br",
+    "description": "Escola de governo federal com centenas de cursos gratuitos em gestão pública, tecnologia e cidadania.",
+    "bestFor": ["Gestão pública", "Cidadania", "Certificação"],
+    "language": "pt-BR",
+    "searchTerms": ["Escola Virtual Gov cursos gratuitos governo", "capacitação pública online grátis"],
+    "icon": "Landmark",
+    "free": true,
+    "legal": true,
+    "lastVerified": "2026-05-18"
+  },
+  {
+    "id": "sesc-digital",
+    "category": "documentarios",
+    "name": "SESC Digital",
+    "url": "https://www.sescdigital.org.br",
+    "description": "Plataforma cultural gratuita do SESC com espetáculos, shows, peças teatrais, danças e conteúdo educativo.",
+    "bestFor": ["Cultura", "Teatro", "Shows"],
+    "language": "pt-BR",
+    "searchTerms": ["SESC Digital eventos culturais online gratuito", "teatro dança shows SESC streaming"],
+    "icon": "Theater",
+    "free": true,
+    "legal": true,
+    "lastVerified": "2026-05-18"
   }
 ]
