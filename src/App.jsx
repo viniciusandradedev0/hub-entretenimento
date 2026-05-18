@@ -11,6 +11,8 @@ import { CategorySection } from './components/CategorySection.jsx'
 import { FavoritesPanel } from './components/FavoritesPanel.jsx'
 import { Toast } from './components/Toast.jsx'
 import { FilterBar } from './components/FilterBar.jsx'
+import { NavBar } from './components/NavBar.jsx'
+import { BackToTop } from './components/BackToTop.jsx'
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -62,6 +64,8 @@ export default function App() {
         onFavoritesToggle={() => setFavoritesOpen((o) => !o)}
         inputRef={searchInputRef}
       />
+
+      <NavBar />
 
       <main className="container-x flex-1 py-6 sm:py-8 space-y-10">
         <FilterBar
@@ -123,6 +127,7 @@ export default function App() {
       />
 
       <Toast message={toastMessage} onDismiss={clearToast} />
+      <BackToTop />
     </div>
   )
 }

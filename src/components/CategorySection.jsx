@@ -11,7 +11,7 @@ export function CategorySection({ category, sources, favorites, onToggleFavorite
   const Icon = resolveIcon(category.icon)
 
   return (
-    <section id={category.slug} className="scroll-mt-24" aria-labelledby={`heading-${category.slug}`}>
+    <section id={category.slug} className="scroll-mt-32" aria-labelledby={`heading-${category.slug}`}>
       <header className="flex items-center gap-3 mb-4">
         <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/15 text-primary">
           <Icon size={20} aria-hidden="true" />
