@@ -8,7 +8,7 @@ import { highlight } from '../lib/highlight.jsx'
  * Card de uma fonte. Mostra ícone, nome, descrição, tags (bestFor),
  * idioma, botões de favoritar e copiar termos de busca.
  */
-export function Card({ source, isFavorite, onToggleFavorite, onCopyTerms, searchTerm = '' }) {
+export function Card({ source, isFavorite, onToggleFavorite, onCopyTerms, searchTerm = '', onOpenModal = undefined }) {
   const [imgError, setImgError] = useState(false)
   const Icon = resolveIcon(source.icon)
 
@@ -37,15 +37,25 @@ export function Card({ source, isFavorite, onToggleFavorite, onCopyTerms, search
     onCopyTerms(source.searchTerms.join('\n'))
   }
 
+  const handleCardClick = (e) => {
+    if (e.target.closest('a, button')) return
+    onOpenModal?.(source)
+  }
+
   return (
     <article
+      onClick={handleCardClick}
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpenModal?.(source) } }}
+      title={onOpenModal ? 'Clique para ver detalhes' : undefined}
       className={clsx(
         'group flex flex-col gap-3 rounded-xl p-4',
         'bg-white dark:bg-surface',
         'border border-gray-200 dark:border-border',
         'shadow-sm hover:shadow-lg dark:shadow-none dark:hover:shadow-primary/10',
         'hover:border-primary/50 hover:-translate-y-0.5',
-        'transition-all duration-200'
+        'transition-all duration-200',
+        onOpenModal && 'cursor-pointer'
       )}
     >
       {/* ─── Header: ícone/favicon + título + favoritar ─── */}

@@ -13,6 +13,8 @@ import { Toast } from './components/Toast.jsx'
 import { FilterBar } from './components/FilterBar.jsx'
 import { NavBar } from './components/NavBar.jsx'
 import { BackToTop } from './components/BackToTop.jsx'
+import { SourceModal } from './components/SourceModal.jsx'
+import { useNotes } from './hooks/useNotes.js'
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -25,13 +27,16 @@ export default function App() {
   const { results, isSearching, debouncedQuery } = useSearch(searchQuery, sourcesData)
   const { copyToClipboard, toastMessage, clearToast } = useClipboard()
 
+  const [modalSource, setModalSource] = useState(null)
+  const { notes, setNote } = useNotes()
   const searchInputRef = useRef(null)
 
+  // Ignora atalhos globais quando o modal está aberto (Escape já é tratado pelo SourceModal)
   useKeyboardShortcuts({
     searchInputRef,
     searchQuery,
-    onClearSearch: () => setSearchQuery(''),
-    onToggleFavorites: () => setFavoritesOpen((o) => !o),
+    onClearSearch: () => { if (!modalSource) setSearchQuery('') },
+    onToggleFavorites: () => { if (!modalSource) setFavoritesOpen((o) => !o) },
   })
 
   // Aplica filtros de idioma e "só favoritos" sobre os resultados da busca
@@ -109,6 +114,7 @@ export default function App() {
             onToggleFavorite={toggleFavorite}
             onCopyTerms={copyToClipboard}
             searchTerm={debouncedQuery}
+            onOpenModal={setModalSource}
           />
         ))}
       </main>
@@ -128,6 +134,12 @@ export default function App() {
 
       <Toast message={toastMessage} onDismiss={clearToast} />
       <BackToTop />
+      <SourceModal
+        source={modalSource}
+        onClose={() => setModalSource(null)}
+        note={notes[modalSource?.id] ?? ''}
+        onNoteChange={(text) => setNote(modalSource.id, text)}
+      />
     </div>
   )
 }
