@@ -162,7 +162,8 @@ export function FeaturedVideo({ video }: FeaturedVideoProps) {
                     alt={video.title}
                     className="h-full w-full object-cover"
                     onError={(e) => {
-                      ;(e.currentTarget as HTMLImageElement).style.display = 'none'
+                      const img = e.currentTarget as HTMLImageElement
+                      img.style.display = 'none'
                     }}
                   />
                   {/* Overlay escuro no hover */}
