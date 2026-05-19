@@ -4,7 +4,7 @@
 > Cada sprint é independente, entregável e finalizável com um commit.
 > Executamos um sprint por vez. Status atualizado conforme o avanço.
 
-**Versão atual:** v2.0 — funcional (React + Vite + Tailwind, 35 fontes, busca, favoritos, dark mode)
+**Versão atual:** v2.0 — funcional (React + Vite + Tailwind, 44 fontes, busca, favoritos, coleções, compartilhamento)
 **Repo:** https://github.com/viniciusandradedev0/hub-entretenimento
 
 ---
@@ -19,15 +19,15 @@
 | 4 | Card expandido + modal | ✅ |
 | 5 | Diversão e descoberta | ✅ |
 | 6 | Favoritos avançados | ✅ |
-| 7 | Conteúdo e curadoria | ⏳ próximo |
-| 8 | Coleções personalizadas | ⬜ |
-| 9 | Compartilhamento | ⬜ |
-| 10 | Qualidade: Lint + Format | ⬜ |
-| 11 | TypeScript | ⬜ |
-| 12 | Testes automatizados | ⬜ |
-| 13 | CI/CD e Deploy | ⬜ |
-| 14 | PWA instalável | ⬜ |
-| 15 | i18n + Acessibilidade avançada | ⬜ |
+| 7 | Conteúdo e curadoria | ✅ |
+| 8 | Coleções personalizadas | ✅ |
+| 9 | Compartilhamento | ✅ |
+| 10 | Qualidade: Lint + Format | ✅ |
+| 11 | TypeScript | ✅ |
+| 12 | Testes automatizados | ✅ |
+| 13 | CI/CD e Deploy | ✅ |
+| 14 | PWA instalável | ✅ |
+| 15 | i18n + Acessibilidade avançada | ✅ |
 
 Legenda: ✅ Concluído · 🔄 Em andamento · ⏳ Próximo · ⬜ Pendente
 
@@ -265,4 +265,4 @@ feat(s3): quick-nav e back-to-top
 ---
 
 *Atualizado em: 2026-05-18*
-*Próximo sprint: **Sprint 7 — Conteúdo e curadoria***
+*Roadmap concluído em: **2026-05-18** — todos os 15 sprints entregues!*

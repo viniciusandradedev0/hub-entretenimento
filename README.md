@@ -1,48 +1,56 @@
 # 🎬 Hub de Entretenimento Pessoal
 
-Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entretenimento em um único lugar — filmes, música, podcasts, jogos e documentários — com busca, favoritos, coleções e muito mais.
+Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entretenimento — filmes, música, podcasts, jogos e documentários — com busca, favoritos, coleções, vídeo em destaque e muito mais.
 
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-![License](https://img.shields.io/badge/license-MIT-blue)
+[![CI](https://github.com/viniciusandradedev0/hub-entretenimento/actions/workflows/ci.yml/badge.svg)](https://github.com/viniciusandradedev0/hub-entretenimento/actions/workflows/ci.yml)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)
 ![Stack](https://img.shields.io/badge/stack-React%20%2B%20Vite%20%2B%20Tailwind-7c3aed)
 ![Fontes](https://img.shields.io/badge/fontes-44%20curadas-green)
+![PWA](https://img.shields.io/badge/PWA-instalável-blueviolet)
+![Tests](https://img.shields.io/badge/testes-32%20passando-brightgreen)
 
 ---
 
 ## ✨ Funcionalidades
 
 ### Descoberta
-- 🎬 **Filmes e séries** — plataformas gratuitas e legais de streaming
-- 🎵 **Música** — streaming, download legal e descoberta musical
-- 🎙️ **Podcasts e audiolivros** — agregadores e diretórios abertos
-- 🎮 **Jogos** — plataformas com jogos gratuitos legítimos
-- 📚 **Documentários e educação** — conteúdo educativo de qualidade
+- 🎬 **5 categorias** — Filmes · Música · Podcasts/Audiolivros · Jogos · Documentários/Edu
 - ✨ **Fonte do dia** — destaque rotativo diário, determinístico por data
-- 🎲 **Surpreenda-me** — abre uma fonte aleatória do catálogo
+- 🎥 **Vídeo em destaque** — iframe (YouTube / Internet Archive) com thumbnail lazy-load, rotação diária; sem autoplay
+- 🎲 **Surpreenda-me** — abre uma fonte aleatória do catálogo em nova aba
 
 ### Busca e filtros
-- 🔍 **Busca global** com highlight do termo nos cards
+- 🔍 **Busca global** com highlight do termo e debounce de 250ms
 - 🌍 **Filtro por idioma** — Todos / PT-BR / EN / Multi
-- 🏷️ **Filtro por tags** — chips clicáveis das categorias bestFor (filtro OR)
+- 🏷️ **Filtro por tags** — chips clicáveis das categorias `bestFor` (filtro OR)
 - ❤️ **Só favoritos** — exibe apenas as fontes marcadas
 - 📊 **Ordenação** — Original / A→Z / Mais acessadas
 
 ### Organização pessoal
 - ⭐ **Favoritos** — salvos localmente, com export/import `.json`
 - 📂 **Coleções** — crie, renomeie e delete listas temáticas; adicione fontes via dropdown no card
-- 📝 **Notas pessoais** — anote observações em cada fonte (no modal de detalhes)
-- 📈 **Histórico de acessos** — contagem de cliques por fonte (usado na ordenação)
+- 📝 **Notas pessoais** — anotações por fonte persistidas no modal de detalhes
+- 📈 **Stats pessoais** — modal 📊 com cliques totais, streak de visitas diárias, categoria favorita e top 5 fontes
 
-### Navegação e UX
-- 🧭 **NavBar de categorias** — sticky com indicador da seção ativa (Intersection Observer)
+### Compartilhamento
+- 🔗 **Compartilhar coleção** — gera URL `?share=<base64>` com os IDs da coleção
+- 📤 **Web Share API** — com fallback para clipboard
+- 👁️ **Preview de link compartilhado** — fontes da coleção ficam destacadas em anel roxo ao abrir o link
+
+### UX e Acessibilidade
+- 🧭 **NavBar** — sticky com indicador de seção ativa (Intersection Observer)
 - ⬆️ **Voltar ao topo** — botão flutuante após 400px de scroll
-- ⌨️ **Atalhos de teclado** — `/` foca busca · `Esc` limpa · `f` abre favoritos
+- ⌨️ **Atalhos de teclado** — `/` · `Esc` · `f` · `t` (modo teatro do vídeo)
+- 🎭 **Modo Teatro** — overlay fullscreen para o vídeo em destaque (atalho `t`)
 - 🌗 **Dark/Light mode** — detecta preferência do sistema, toggle manual
-- 📱 **Responsivo** — mobile-first, funciona em qualquer tela
+- 🌐 **i18n PT-BR / EN** — toggle de idioma no header
+- ♿ **Acessibilidade** — skip-to-content, focus trap em modais, ARIA live regions
+- 📱 **PWA instalável** — funciona offline, ícone na home screen
 
-### Qualidade
+### Qualidade do catálogo
+- ✦ **Chip "Novo"** — badge verde em fontes com `lastVerified` ≤ 30 dias
 - ⚠️ **Badge de link desatualizado** — aviso âmbar quando `lastVerified` > 180 dias
-- 🔗 **Script de verificação de links** — `npm run check-links` faz HEAD em todas as URLs
+- 🔗 **Verificador de links** — `npm run check-links` faz HEAD em todas as 44 URLs
 
 ---
 
@@ -50,12 +58,18 @@ Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entrete
 
 | Tecnologia | Uso |
 |-----------|-----|
-| **React 18+** | UI e componentes |
-| **Vite** | Build tool e dev server |
-| **Tailwind CSS** | Estilização utility-first |
+| **React 18** | UI e componentes |
+| **TypeScript 5** | Type safety e IntelliSense |
+| **Vite 5** | Build tool e dev server |
+| **Tailwind CSS 3** | Estilização utility-first |
+| **react-i18next** | Internacionalização (PT-BR / EN) |
+| **vite-plugin-pwa** | Service Worker + manifest PWA |
+| **Vitest + Testing Library** | 32 testes automatizados |
+| **ESLint + Prettier + Husky** | Qualidade de código |
+| **GitHub Actions** | CI/CD automático |
 | **Lucide React** | Ícones |
 | **clsx** | Classes condicionais |
-| **localStorage** | Favoritos, notas, coleções, click stats, tema |
+| **localStorage** | Persistência client-side |
 
 ---
 
@@ -65,7 +79,8 @@ Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entrete
 |-------|-----|-----|
 | Background | `#0a0a0f` | Fundo principal |
 | Surface | `#16161d` | Cards e painéis |
-| Primary | `#7c3aed` | Destaques e botões |
+| Primary | `#7c3aed` | Destaques, links, DailyPick |
+| Cyan | `#06b6d4` | FeaturedVideo |
 | Text | `#e5e5e5` | Texto principal |
 | Muted | `#9ca3af` | Texto secundário |
 
@@ -73,36 +88,38 @@ Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entrete
 
 ## 🚀 Como rodar localmente
 
-### Pré-requisitos
-- [Node.js](https://nodejs.org/) 18+ instalado
-
-### Jeito rápido (Windows)
-
-Dê duplo clique em **`start.bat`** — instala dependências na primeira vez e abre o servidor automaticamente.
-
-### Via terminal
+**Pré-requisitos:** Node.js 18+
 
 ```bash
 # Clone o repositório
 git clone https://github.com/viniciusandradedev0/hub-entretenimento.git
 cd hub-entretenimento
 
-# Instale as dependências (só na primeira vez)
+# Instale as dependências
 npm install
 
-# Rode o servidor de desenvolvimento
+# Servidor de desenvolvimento
 npm run dev
 ```
 
-A aplicação estará disponível em `http://localhost:5173`.
+Acesse `http://localhost:5173`.
 
-### Scripts disponíveis
+---
+
+## 📜 Scripts disponíveis
 
 ```bash
-npm run dev          # Servidor de desenvolvimento
-npm run build        # Build de produção
-npm run preview      # Preview do build localmente
-npm run check-links  # Verifica se todas as 44 URLs estão acessíveis (Node 18+)
+npm run dev           # Servidor de desenvolvimento (HMR)
+npm run build         # Build de produção
+npm run preview       # Preview do build localmente
+npm run typecheck     # Verifica tipos TypeScript (sem emitir)
+npm run lint          # ESLint nos arquivos .ts/.tsx
+npm run lint:fix      # ESLint com auto-fix
+npm run format        # Prettier em src/**/*.{ts,tsx,css}
+npm run test          # Vitest — executa todos os testes
+npm run test:watch    # Vitest em modo watch
+npm run coverage      # Relatório de cobertura (v8)
+npm run check-links   # Verifica se todas as 44 URLs respondem
 ```
 
 ---
@@ -114,6 +131,7 @@ npm run check-links  # Verifica se todas as 44 URLs estão acessíveis (Node 18+
 | `/` | Foca o campo de busca |
 | `Esc` | Limpa a busca / fecha modal |
 | `f` | Abre/fecha o painel de favoritos |
+| `t` | Ativa/desativa modo teatro do vídeo em destaque (quando tocando) |
 
 ---
 
@@ -121,22 +139,30 @@ npm run check-links  # Verifica se todas as 44 URLs estão acessíveis (Node 18+
 
 ```
 /
+├── .github/workflows/      # CI (ci.yml) e deploy automático (deploy.yml)
+├── .husky/                 # Hook de pre-commit (lint-staged)
 ├── scripts/
 │   └── check-links.js      # Verificador de links (Node 18+)
 ├── src/
-│   ├── components/         # 15 componentes React
+│   ├── App.tsx             # Componente raiz — estado global e wiring
+│   ├── main.tsx            # Entry point
+│   ├── i18n.ts             # Configuração react-i18next
+│   ├── types.ts            # Interfaces centrais (Source, Collection, FeaturedVideoItem…)
+│   ├── vite-env.d.ts       # Tipos Vite + PWA
+│   ├── components/         # 20 componentes React (.tsx)
 │   ├── data/
-│   │   └── sources.json    # 44 fontes curadas
-│   ├── hooks/              # 9 hooks customizados
-│   ├── lib/                # Utilitários (ícones, categorias, daily, highlight)
-│   ├── styles/             # CSS global + Tailwind
-│   ├── App.jsx
-│   └── main.jsx
-├── .gitattributes
-├── index.html
-├── tailwind.config.js
-├── vite.config.js
-└── CLAUDE.md               # Diretrizes para IA assistente
+│   │   ├── sources.json    # 44 fontes curadas (fonte canônica)
+│   │   ├── sources.ts      # Re-export tipado do JSON
+│   │   └── featured-videos.json  # 18 vídeos curados
+│   ├── hooks/              # 10 hooks customizados (.ts)
+│   ├── lib/                # Utilitários: categories, daily, highlight, icons, share
+│   ├── locales/            # pt.json + en.json
+│   ├── test/               # Setup dos testes
+│   └── styles/             # CSS global + Tailwind
+├── .eslintrc.cjs
+├── .prettierrc
+├── tsconfig.json
+└── vite.config.js          # + VitePWA + Vitest config
 ```
 
 ---
@@ -164,48 +190,58 @@ Edite `src/data/sources.json` seguindo o schema:
 
 Após adicionar, rode `npm run check-links` para validar a URL.
 
-### Categorias válidas
-- `filmes` · `musica` · `podcasts` · `jogos` · `documentarios`
-
-### Ícones disponíveis
-`Film`, `Music`, `Mic`, `Headphones`, `BookOpen`, `Gamepad2`, `GraduationCap`, `Youtube`, `Archive`, `Search`, `Library`, `Code`, `Theater`, `Landmark`, `Tv`
-
 > ⚠️ **Apenas fontes gratuitas e legais** são aceitas no projeto.
+
+---
+
+## ➕ Adicionando vídeos em destaque
+
+Edite `src/data/featured-videos.json`:
+
+```json
+{
+  "id": "slug-unico",
+  "title": "Título do vídeo",
+  "description": "Descrição curta",
+  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID",
+  "thumbnailUrl": "https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg",
+  "platform": "youtube",
+  "category": "documentarios",
+  "language": "en",
+  "duration": "14:00"
+}
+```
+
+Plataformas suportadas: `youtube` e `archive` (Internet Archive).
 
 ---
 
 ## 🗺️ Roadmap
 
-| Sprint | Tema | Status |
-|--------|------|--------|
-| 1 | Quick wins visuais | ✅ |
-| 2 | Busca melhorada | ✅ |
-| 3 | Navegação e orientação | ✅ |
-| 4 | Card expandido + modal | ✅ |
-| 5 | Diversão e descoberta | ✅ |
-| 6 | Favoritos avançados | ✅ |
-| 7 | Conteúdo e curadoria | ✅ |
-| 8 | Coleções personalizadas | ✅ |
-| 9 | Compartilhamento via URL | ⏳ próximo |
-| 10–15 | Lint, TypeScript, Testes, CI/CD, PWA, i18n | ⬜ |
+Todos os 15 sprints do roadmap foram concluídos. O projeto é considerado **feature-complete** para a v1.
+
+| Fase | Status |
+|------|--------|
+| Sprints 1–8: Quick wins, busca, modal, favoritos, coleções | ✅ |
+| Sprints 9–15: Compartilhamento, TypeScript, Testes, CI/CD, PWA, i18n | ✅ |
+| Features extras: FeaturedVideo, Stats, Modo Teatro, Chip Novo | ✅ |
 
 ---
 
 ## 🤝 Contribuindo
 
-Este é um projeto pessoal, mas sugestões são bem-vindas! Abra uma issue ou pull request.
+Este é um projeto pessoal. Sugestões são bem-vindas via issues.
 
-### Diretrizes
 1. Mantenha o foco em **conteúdo gratuito e legal**
-2. Siga os padrões de código descritos em `CLAUDE.md`
+2. Siga os padrões de código em `CLAUDE.md`
 3. Adicione `lastVerified` em novas fontes e rode `npm run check-links`
-4. Teste em mobile e desktop antes de submeter
+4. `npm run typecheck && npm run lint && npm run test` devem passar sem erros
 
 ---
 
 ## 📜 Licença
 
-Distribuído sob a licença MIT.
+MIT
 
 ---
 
@@ -215,6 +251,4 @@ Distribuído sob a licença MIT.
 
 ---
 
-## 🙏 Agradecimentos
-
-Este projeto não hospeda nem distribui conteúdo — apenas agrega links públicos de plataformas gratuitas e legais. Todos os direitos pertencem aos respectivos provedores.
+*Este projeto apenas agrega links públicos de plataformas gratuitas e legais. Todos os direitos pertencem aos respectivos provedores.*

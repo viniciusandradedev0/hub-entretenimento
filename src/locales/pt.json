@@ -1,0 +1,83 @@
+{
+  "header": {
+    "title": "Hub Entretenimento",
+    "surpriseMe": "Surpreenda-me",
+    "share": "Compartilhar",
+    "collections": "Coleções",
+    "favorites": "Favoritos"
+  },
+  "search": {
+    "placeholder": "Buscar fontes (ex: jogos indie, audiobook clássico...)",
+    "ariaLabel": "Buscar fontes de entretenimento",
+    "results_one": "{{count}} resultado para \"{{query}}\"",
+    "results_other": "{{count}} resultados para \"{{query}}\"",
+    "clear": "Limpar busca"
+  },
+  "filters": {
+    "all": "Todos",
+    "ptBR": "PT-BR",
+    "en": "EN",
+    "multi": "Multi",
+    "onlyFavorites": "Só favoritos",
+    "showing_one": "{{count}} fonte",
+    "showing_other": "{{count}} fontes"
+  },
+  "sort": {
+    "original": "Ordem original",
+    "alphabetic": "A → Z",
+    "mostClicked": "Mais acessadas"
+  },
+  "card": {
+    "openSite": "Abrir site",
+    "copyTerms": "Copiar termos",
+    "addToCollection": "Adicionar à coleção",
+    "favorite": "Favoritar {{name}}",
+    "unfavorite": "Remover {{name}} dos favoritos"
+  },
+  "favorites": {
+    "title": "Favoritos",
+    "empty": "Nenhum favorito ainda",
+    "emptyHint": "Clique no coração nos cards para favoritar fontes.",
+    "export": "Exportar",
+    "import": "Importar"
+  },
+  "collections": {
+    "title": "Coleções",
+    "empty": "Nenhuma coleção ainda",
+    "emptyHint": "Clique em \"+\" para criar sua primeira coleção.",
+    "new": "Nova coleção",
+    "namePlaceholder": "Nome da coleção",
+    "rename": "Renomear",
+    "delete": "Deletar coleção",
+    "share": "Compartilhar coleção",
+    "emptyCollection": "Esta coleção está vazia. Adicione fontes usando o botão \"Coleção\" nos cards."
+  },
+  "shared": {
+    "banner_one": "Visualizando {{count}} fonte compartilhada",
+    "banner_other": "Visualizando {{count}} fontes compartilhadas",
+    "clear": "Limpar"
+  },
+  "daily": {
+    "title": "Fonte do dia",
+    "details": "Ver detalhes",
+    "open": "Abrir site"
+  },
+  "empty": {
+    "title": "Nenhuma fonte encontrada",
+    "noResults": "Nenhum resultado para \"{{query}}\".",
+    "adjustFilters": "Tente ajustar os filtros.",
+    "suggestions": "Sugestões: indie, documentário, jogos browser, podcast…"
+  },
+  "update": {
+    "available": "Nova versão disponível!",
+    "refresh": "Atualizar",
+    "dismiss": "Ignorar"
+  },
+  "footer": "Apenas links públicos. Conteúdo pertence aos respectivos provedores.",
+  "lang": {
+    "toggle": "Switch to English",
+    "ptBR": "PT-BR",
+    "en": "EN",
+    "multi": "Multi"
+  }
+}

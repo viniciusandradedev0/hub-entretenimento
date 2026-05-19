@@ -6,7 +6,131 @@ Este documento registra a evolução do projeto, decisões arquiteturais e os ca
 
 ---
 
-## 🚀 Versão 3.0 — 2026-05-18 (atual)
+## 🚀 Versão 4.0 — 2026-05-18 (atual)
+
+### O que mudou
+
+Após a v3.0 (Sprints 1–8), o projeto foi levado à maturidade técnica completa com os Sprints 9–15 e uma rodada extra de novas features (vídeo em destaque, stats, modo teatro, chip "Novo").
+
+### Sprints 9–15
+
+| Sprint | Entregue |
+|--------|---------|
+| 9 | Compartilhamento via URL `?share=<base64>` — coleções compartilháveis sem backend; botão Share no header e no CollectionsPanel; banner de preview ao abrir link compartilhado; `src/lib/share.ts` |
+| 10 | ESLint 8 + `eslint-plugin-react-hooks`, Prettier 3 + `prettier-plugin-tailwindcss`, Husky + lint-staged; 11 erros corrigidos no código legado; scripts `lint`, `lint:fix`, `format`, `format:check` |
+| 11 | Migração completa para **TypeScript** — todos os 36 arquivos `.jsx/.js` renomeados para `.tsx/.ts`; `tsconfig.json`; `src/types.ts` com interfaces centrais (`Source`, `Collection`, `FeaturedVideoItem`…); `sources.ts` com type assertion sobre JSON; `vite-env.d.ts` |
+| 12 | **Vitest + Testing Library** — 6 arquivos de teste, 32 testes passando; cobertura de `useFavorites`, `useSearch`, `useTheme`, `useClipboard`, `SearchBar`, `Card`; scripts `test`, `test:watch`, `coverage` |
+| 13 | **GitHub Actions** — `ci.yml` (typecheck + lint + test + build em todo push/PR) e `deploy.yml` (GitHub Pages automático no merge); base URL dinâmica para GH Pages; badge de CI no README |
+| 14 | **PWA instalável** — `vite-plugin-pwa` com Workbox; Service Worker com precache e runtime cache de favicons; `manifest.json` embutido; `UpdatePrompt.tsx` com banner "Nova versão disponível" |
+| 15 | **i18n PT-BR/EN** via `react-i18next`; `LangToggle.tsx` no header; skip-to-content; `useFocusTrap` hook; focus trap em `SourceModal`; ARIA live region para anunciar resultados de busca; `src/locales/pt.json` + `src/locales/en.json` |
+
+### Novas features (pós-Sprint 15)
+
+| Feature | Descrição |
+|---------|-----------|
+| **FeaturedVideo** | Card de vídeo em destaque com iframe (YouTube/Internet Archive), thumbnail lazy-load, sem autoplay, colapsável, rotação diária determinística — `src/components/FeaturedVideo.tsx`, `src/data/featured-videos.json` (18 vídeos curados) |
+| **Modo Teatro** | Atalho `t` / botão ⊞ expande o vídeo em overlay fullscreen (bg-black/90); `Esc` fecha; só disponível quando o vídeo está tocando |
+| **Chip "Novo"** | Badge `✦ Novo` verde em `Card.tsx` para fontes com `lastVerified` ≤ 30 dias |
+| **Stats Pessoais** | Modal `StatsModal.tsx` acessível pelo botão 📊 no header — mostra cliques totais, favoritos, coleções, streak de visitas diárias, categoria favorita e top 5 fontes com mini barras de progresso; streak persistido em `hub:visit-streak` |
+
+### Estrutura de pastas atual (v4.0)
+
+```
+/
+├── .github/
+│   └── workflows/
+│       ├── ci.yml              # build + lint + typecheck + test em todo push
+│       └── deploy.yml          # deploy automático no GitHub Pages
+├── .husky/
+│   └── pre-commit              # lint-staged antes de cada commit
+├── scripts/
+│   └── check-links.js          # verifica todas as URLs do catálogo
+├── src/
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── i18n.ts                 # configuração react-i18next (pt/en)
+│   ├── types.ts                # interfaces centrais: Source, Collection, FeaturedVideoItem…
+│   ├── vite-env.d.ts           # tipos Vite + PWA
+│   ├── data/
+│   │   ├── sources.json        # 44 fontes (fonte de dados canônica para check-links)
+│   │   ├── sources.ts          # type-safe re-export do JSON
+│   │   └── featured-videos.json # 18 vídeos curados para o FeaturedVideo
+│   ├── lib/
+│   │   ├── categories.ts       # CATEGORIES: CategoryMeta[]
+│   │   ├── icons.ts            # ICONS map + resolveIcon()
+│   │   ├── daily.ts            # dayHash() exportada + getDailyPick()
+│   │   ├── highlight.tsx       # highlight(text, term): ReactNode
+│   │   └── share.ts            # encodeShare / decodeShare / buildShareUrl
+│   ├── hooks/
+│   │   ├── useActiveSection.ts
+│   │   ├── useClickStats.ts
+│   │   ├── useClipboard.ts
+│   │   ├── useCollections.ts
+│   │   ├── useFavorites.ts
+│   │   ├── useFocusTrap.ts     # focus trap para modais (a11y)
+│   │   ├── useKeyboardShortcuts.ts
+│   │   ├── useNotes.ts
+│   │   ├── useSearch.ts
+│   │   └── useTheme.ts
+│   ├── locales/
+│   │   ├── pt.json             # strings em português
+│   │   └── en.json             # strings em inglês
+│   ├── components/
+│   │   ├── BackToTop.tsx
+│   │   ├── Card.tsx            # 10 props + chip Novo (isNew) + isShared
+│   │   ├── CategorySection.tsx # prop sharedIds para destaque de fontes compartilhadas
+│   │   ├── CollectionsPanel.tsx # + botão Share por coleção
+│   │   ├── DailyPick.tsx
+│   │   ├── FavoritesPanel.tsx
+│   │   ├── FeaturedVideo.tsx   # iframe + thumbnail + modo teatro
+│   │   ├── FilterBar.tsx
+│   │   ├── Header.tsx          # + LangToggle + Share + Stats
+│   │   ├── LangToggle.tsx      # toggle PT-BR / EN
+│   │   ├── NavBar.tsx
+│   │   ├── SearchBar.tsx
+│   │   ├── SortSelector.tsx
+│   │   ├── SourceModal.tsx     # + focus trap
+│   │   ├── StatsModal.tsx      # stats pessoais (cliques, streak, top fontes)
+│   │   ├── TagFilter.tsx
+│   │   ├── ThemeToggle.tsx
+│   │   ├── Toast.tsx
+│   │   └── UpdatePrompt.tsx    # banner de nova versão do PWA
+│   ├── test/
+│   │   └── setup.ts            # @testing-library/jest-dom
+│   └── styles/
+│       └── index.css
+├── .eslintrc.cjs
+├── .prettierrc
+├── .prettierignore
+├── tsconfig.json
+├── vite.config.js              # + VitePWA + test config
+├── package.json
+└── CLAUDE.md
+```
+
+### Chaves de localStorage (v4.0)
+
+| Chave | Hook/Origem | Conteúdo |
+|-------|-------------|---------|
+| `hub:favorites` | useFavorites | `string[]` de IDs |
+| `hub:notes` | useNotes | `{ [sourceId]: string }` |
+| `hub:click-stats` | useClickStats | `{ [sourceId]: number }` |
+| `hub:collections` | useCollections | `Collection[]` |
+| `hub:visit-streak` | App.tsx (useEffect) | `{ days: number, lastVisit: string }` |
+| `hub:lang` | LangToggle | `"pt" \| "en"` |
+| `theme` | useTheme | `"dark" \| "light"` |
+
+### Decisões de arquitetura (v4.0)
+
+- **TypeScript progressivo** — `noImplicitAny: false` para facilitar migração gradual; interfaces centrais em `types.ts`; tipos explícitos nos componentes críticos
+- **Atalho `t` encapsulado** — o shortcut do modo teatro vive dentro de `FeaturedVideo.tsx` porque só é válido quando o vídeo está tocando; não poluiu `useKeyboardShortcuts`
+- **`dayHash()` exportada** — a mesma função hash determinística serve tanto para `getDailyPick` (fontes) quanto para `FeaturedVideo` (vídeos), zero duplicação
+- **Stats sem hook** — `StatsModal` lê o `clickStats` passado como prop; o cálculo de `topSources` e `favoriteCategory` é feito com `useMemo` dentro do modal para não poluir App.tsx
+- **Streak client-only** — `hub:visit-streak` é escrito num `useEffect` no mount do App; o StatsModal só lê do localStorage (estado "cold") para evitar re-renders desnecessários
+
+---
+
+## 🚀 Versão 3.0 — 2026-05-18
 
 ### O que mudou
 

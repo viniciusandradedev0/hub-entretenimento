@@ -24,19 +24,23 @@
 ## 🧱 Stack Técnica
 
 - **Framework:** React 18+ com **Vite**
-- **Estilo:** **Tailwind CSS** (integrado ao CSS/HTML já existente do projeto)
-- **Linguagem:** JavaScript (ES6+) ou TypeScript (a confirmar com o mantenedor)
-- **Persistência:** `localStorage` (favoritos, preferências, tema)
+- **Estilo:** **Tailwind CSS** com tema customizado (dark/light)
+- **Linguagem:** **TypeScript** (migração concluída no Sprint 11)
+- **i18n:** `react-i18next` — PT-BR e EN; toggle no header
+- **Testes:** Vitest + Testing Library (32 testes)
+- **Qualidade:** ESLint 8 + Prettier 3 + Husky + lint-staged
+- **CI/CD:** GitHub Actions (ci.yml + deploy.yml → GitHub Pages)
+- **PWA:** `vite-plugin-pwa` + Workbox (instalável, cache offline)
+- **Persistência:** `localStorage` (favoritos, notas, coleções, stats, tema, idioma, streak)
 - **Ícones:** `lucide-react`
-- **Roteamento:** `react-router-dom` (se necessário em múltiplas páginas)
 - **Build:** Vite (`npm run build`)
-- **Hospedagem alvo:** Vercel / Netlify / GitHub Pages
+- **Hospedagem:** GitHub Pages (deploy automático no push para `main`)
 
 ### ⚠️ Estado atual do projeto (atualizado 2026-05-18)
-- O projeto está em **React + Vite + Tailwind** (migração concluída na v2.0)
-- **8 sprints entregues** — veja o ROADMAP.md e o HISTORICO.md para o estado completo
-- **44 fontes** em `sources.json`, todas com o campo `lastVerified`
-- Antes de modificar qualquer componente, leia o arquivo para entender as props atuais (Card.jsx tem 9 props)
+- **Todos os 15 sprints do roadmap concluídos** + features extras (FeaturedVideo, Stats, Modo Teatro, Chip Novo)
+- Stack: **React 18 + Vite + Tailwind + TypeScript** — 100% client-side
+- **44 fontes** em `sources.json` + `18 vídeos curados` em `featured-videos.json`
+- Antes de modificar qualquer componente, leia o arquivo para entender as props e interfaces TypeScript atuais (`Card.tsx` tem interface `CardProps` com 10 props)
 
 ### Restrições
 - ❌ **Sem APIs pagas** ou que exijam chave de acesso
@@ -51,51 +55,70 @@
 
 ```
 /
+├── .github/workflows/
+│   ├── ci.yml               # typecheck + lint + test + build em todo push/PR
+│   └── deploy.yml           # deploy automático no GitHub Pages
+├── .husky/pre-commit        # lint-staged antes de cada commit
 ├── scripts/
 │   └── check-links.js       # npm run check-links — verifica todas as URLs
 ├── src/
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── i18n.ts              # react-i18next (pt/en)
+│   ├── types.ts             # Source, Collection, FeaturedVideoItem, CategoryMeta…
+│   ├── vite-env.d.ts        # tipos Vite + vite-plugin-pwa
 │   ├── components/
-│   │   ├── Card.jsx          # 9 props: source, isFavorite, onToggleFavorite, onCopyTerms,
-│   │   │                     #   searchTerm, onOpenModal, onTrackClick, onAddToCollection, collections
-│   │   ├── CategorySection.jsx
-│   │   ├── CollectionsPanel.jsx
-│   │   ├── DailyPick.jsx
-│   │   ├── FavoritesPanel.jsx
-│   │   ├── FilterBar.jsx
-│   │   ├── Header.jsx
-│   │   ├── NavBar.jsx
-│   │   ├── SearchBar.jsx
-│   │   ├── SortSelector.jsx
-│   │   ├── SourceModal.jsx
-│   │   ├── TagFilter.jsx
-│   │   ├── ThemeToggle.jsx
-│   │   ├── BackToTop.jsx
-│   │   └── Toast.jsx
+│   │   ├── Card.tsx          # CardProps (10 props) + chip Novo + isShared
+│   │   ├── CategorySection.tsx
+│   │   ├── CollectionsPanel.tsx # + botão Share por coleção
+│   │   ├── DailyPick.tsx
+│   │   ├── FavoritesPanel.tsx
+│   │   ├── FeaturedVideo.tsx # iframe + thumbnail + modo teatro (atalho t)
+│   │   ├── FilterBar.tsx
+│   │   ├── Header.tsx        # + LangToggle + Share + Stats (📊)
+│   │   ├── LangToggle.tsx    # toggle PT-BR / EN
+│   │   ├── NavBar.tsx
+│   │   ├── SearchBar.tsx
+│   │   ├── SortSelector.tsx
+│   │   ├── SourceModal.tsx   # + focus trap
+│   │   ├── StatsModal.tsx    # cliques, streak, top fontes
+│   │   ├── TagFilter.tsx
+│   │   ├── ThemeToggle.tsx
+│   │   ├── Toast.tsx
+│   │   ├── BackToTop.tsx
+│   │   └── UpdatePrompt.tsx  # banner de nova versão do PWA
 │   ├── data/
-│   │   └── sources.json      # 44 fontes, schema com lastVerified
+│   │   ├── sources.json      # 44 fontes (fonte canônica para check-links)
+│   │   ├── sources.ts        # re-export tipado do JSON
+│   │   └── featured-videos.json # 18 vídeos curados (YouTube + Internet Archive)
 │   ├── hooks/
-│   │   ├── useActiveSection.js
-│   │   ├── useClickStats.js
-│   │   ├── useClipboard.js
-│   │   ├── useCollections.js
-│   │   ├── useFavorites.js
-│   │   ├── useKeyboardShortcuts.js
-│   │   ├── useNotes.js
-│   │   ├── useSearch.js
-│   │   └── useTheme.js
+│   │   ├── useActiveSection.ts
+│   │   ├── useClickStats.ts
+│   │   ├── useClipboard.ts
+│   │   ├── useCollections.ts
+│   │   ├── useFavorites.ts
+│   │   ├── useFocusTrap.ts  # focus trap para modais (a11y)
+│   │   ├── useKeyboardShortcuts.ts
+│   │   ├── useNotes.ts
+│   │   ├── useSearch.ts
+│   │   └── useTheme.ts
 │   ├── lib/
-│   │   ├── categories.js
-│   │   ├── daily.js
-│   │   ├── highlight.jsx
-│   │   └── icons.js          # 15 ícones registrados
-│   ├── styles/
-│   │   └── index.css
-│   ├── App.jsx
-│   └── main.jsx
-├── .gitattributes
-├── index.html
-├── tailwind.config.js
-├── vite.config.js
+│   │   ├── categories.ts
+│   │   ├── daily.ts         # dayHash() exportada + getDailyPick()
+│   │   ├── highlight.tsx    # highlight(text, term): ReactNode
+│   │   ├── icons.ts         # 15 ícones registrados
+│   │   └── share.ts         # encodeShare / decodeShare / buildShareUrl
+│   ├── locales/
+│   │   ├── pt.json          # strings em português
+│   │   └── en.json          # strings em inglês
+│   ├── test/
+│   │   └── setup.ts         # @testing-library/jest-dom
+│   └── styles/
+│       └── index.css
+├── .eslintrc.cjs
+├── .prettierrc
+├── tsconfig.json
+├── vite.config.js           # + VitePWA + vitest config
 └── CLAUDE.md
 ```
 
@@ -260,26 +283,22 @@ export default {
 
 ## 🗺️ Roadmap (resumo)
 
-Veja o arquivo `ROADMAP.md` para o plano completo com 15 sprints.
+Veja o arquivo `ROADMAP.md` para o plano completo. Todos os 15 sprints foram concluídos.
 
 | Sprint | Tema | Status |
 |--------|------|--------|
-| 1–8 | Quick wins, busca, navegação, modal, descoberta, favoritos, curadoria, coleções | ✅ |
-| 9 | Compartilhamento via URL (`?share=<base64>`) | ⏳ próximo |
-| 10 | ESLint + Prettier + Husky | ⬜ |
-| 11 | TypeScript | ⬜ |
-| 12 | Testes (Vitest + Testing Library) | ⬜ |
-| 13 | CI/CD + Deploy automático | ⬜ |
-| 14 | PWA instalável | ⬜ |
-| 15 | i18n + Acessibilidade avançada | ⬜ |
+| 1–15 | Todos os sprints do roadmap | ✅ |
+| Extra | FeaturedVideo + Stats + Modo Teatro + Chip Novo | ✅ |
 
 ### Chaves de localStorage em uso
-| Chave | Hook | Conteúdo |
-|-------|------|---------|
+| Chave | Hook/Origem | Conteúdo |
+|-------|-------------|---------|
 | `hub:favorites` | useFavorites | `string[]` de IDs |
 | `hub:notes` | useNotes | `{ [sourceId]: string }` |
 | `hub:click-stats` | useClickStats | `{ [sourceId]: number }` |
-| `hub:collections` | useCollections | `[{ id, name, sourceIds[] }]` |
+| `hub:collections` | useCollections | `Collection[]` |
+| `hub:visit-streak` | App.tsx (useEffect mount) | `{ days: number, lastVisit: string }` |
+| `hub:lang` | LangToggle | `"pt" \| "en"` |
 | `theme` | useTheme | `"dark" \| "light"` |
 
 ---
@@ -295,4 +314,4 @@ Veja o arquivo `ROADMAP.md` para o plano completo com 15 sprints.
 
 **Última atualização:** 2026-05-18
 **Mantenedor:** Vinicius
-**Sprint atual:** 8 concluído — próximo: Sprint 9 (Compartilhamento)
+**Estado:** Roadmap 100% concluído + features extras (FeaturedVideo, Stats Pessoais, Modo Teatro, Chip Novo)

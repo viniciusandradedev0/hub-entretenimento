@@ -1,0 +1,83 @@
+{
+  "header": {
+    "title": "Entertainment Hub",
+    "surpriseMe": "Surprise me",
+    "share": "Share",
+    "collections": "Collections",
+    "favorites": "Favorites"
+  },
+  "search": {
+    "placeholder": "Search sources (e.g. indie games, classic audiobook...)",
+    "ariaLabel": "Search entertainment sources",
+    "results_one": "{{count}} result for \"{{query}}\"",
+    "results_other": "{{count}} results for \"{{query}}\"",
+    "clear": "Clear search"
+  },
+  "filters": {
+    "all": "All",
+    "ptBR": "PT-BR",
+    "en": "EN",
+    "multi": "Multi",
+    "onlyFavorites": "Favorites only",
+    "showing_one": "{{count}} source",
+    "showing_other": "{{count}} sources"
+  },
+  "sort": {
+    "original": "Default order",
+    "alphabetic": "A → Z",
+    "mostClicked": "Most accessed"
+  },
+  "card": {
+    "openSite": "Open site",
+    "copyTerms": "Copy terms",
+    "addToCollection": "Add to collection",
+    "favorite": "Favorite {{name}}",
+    "unfavorite": "Remove {{name}} from favorites"
+  },
+  "favorites": {
+    "title": "Favorites",
+    "empty": "No favorites yet",
+    "emptyHint": "Click the heart on any card to add favorites.",
+    "export": "Export",
+    "import": "Import"
+  },
+  "collections": {
+    "title": "Collections",
+    "empty": "No collections yet",
+    "emptyHint": "Click \"+\" to create your first collection.",
+    "new": "New collection",
+    "namePlaceholder": "Collection name",
+    "rename": "Rename",
+    "delete": "Delete collection",
+    "share": "Share collection",
+    "emptyCollection": "This collection is empty. Add sources using the \"Collection\" button on cards."
+  },
+  "shared": {
+    "banner_one": "Viewing {{count}} shared source",
+    "banner_other": "Viewing {{count}} shared sources",
+    "clear": "Clear"
+  },
+  "daily": {
+    "title": "Source of the day",
+    "details": "See details",
+    "open": "Open site"
+  },
+  "empty": {
+    "title": "No sources found",
+    "noResults": "No results for \"{{query}}\".",
+    "adjustFilters": "Try adjusting the filters.",
+    "suggestions": "Suggestions: indie, documentary, browser games, podcast…"
+  },
+  "update": {
+    "available": "New version available!",
+    "refresh": "Reload",
+    "dismiss": "Dismiss"
+  },
+  "footer": "Public links only. Content belongs to their respective providers.",
+  "lang": {
+    "toggle": "Mudar para Português",
+    "ptBR": "PT-BR",
+    "en": "EN",
+    "multi": "Multi"
+  }
+}

@@ -1,0 +1,200 @@
+[
+  {
+    "id": "nosferatu-1922",
+    "title": "Nosferatu (1922)",
+    "description": "O clássico original do cinema expressionista alemão — domínio público completo. Dirigido por F.W. Murnau.",
+    "embedUrl": "https://archive.org/embed/Nosferatu_201405",
+    "thumbnailUrl": "https://archive.org/services/img/Nosferatu_201405",
+    "platform": "archive",
+    "category": "filmes",
+    "language": "multi",
+    "duration": "1:21:50"
+  },
+  {
+    "id": "metropolis-1927",
+    "title": "Metropolis (1927)",
+    "description": "Obra-prima de Fritz Lang — a distopia visual mais icônica do cinema mudo. Versão restaurada.",
+    "embedUrl": "https://archive.org/embed/Metropolis_1927",
+    "thumbnailUrl": "https://archive.org/services/img/Metropolis_1927",
+    "platform": "archive",
+    "category": "filmes",
+    "language": "multi",
+    "duration": "2:33:00"
+  },
+  {
+    "id": "general-keaton-1926",
+    "title": "The General (1926) — Buster Keaton",
+    "description": "Considerada a maior comédia do cinema mudo. Perseguição de locomotivas com gags inesquecíveis.",
+    "embedUrl": "https://archive.org/embed/TheGeneral_592",
+    "thumbnailUrl": "https://archive.org/services/img/TheGeneral_592",
+    "platform": "archive",
+    "category": "filmes",
+    "language": "multi",
+    "duration": "1:18:00"
+  },
+  {
+    "id": "queen-live-aid-1985",
+    "title": "Queen — Live Aid 1985 (Full Set)",
+    "description": "O show mais icônico da história do rock. 21 minutos que definiram Freddie Mercury como o maior frontman de todos os tempos.",
+    "embedUrl": "https://www.youtube.com/embed/vbvyNnw8Qjg",
+    "thumbnailUrl": "https://img.youtube.com/vi/vbvyNnw8Qjg/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "musica",
+    "language": "en",
+    "duration": "20:50"
+  },
+  {
+    "id": "beethoven-9th-karajan",
+    "title": "Beethoven — Sinfonia nº 9 (Karajan, Berliner Philharmoniker)",
+    "description": "Uma das gravações mais aclamadas da Nona Sinfonia. Herbert von Karajan regendo a Filarmônica de Berlim.",
+    "embedUrl": "https://www.youtube.com/embed/ixpfgm_xxSE",
+    "thumbnailUrl": "https://img.youtube.com/vi/ixpfgm_xxSE/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "musica",
+    "language": "multi",
+    "duration": "1:04:00"
+  },
+  {
+    "id": "miles-davis-kind-of-blue-sessions",
+    "title": "Miles Davis — Kind of Blue (Full Album + Documentary)",
+    "description": "O álbum de jazz mais vendido da história apresentado com contexto histórico e entrevistas raras.",
+    "embedUrl": "https://www.youtube.com/embed/ylXk1LBvIqU",
+    "thumbnailUrl": "https://img.youtube.com/vi/ylXk1LBvIqU/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "musica",
+    "language": "en",
+    "duration": "52:00"
+  },
+  {
+    "id": "dom-casmurro-audiobook",
+    "title": "Dom Casmurro — Machado de Assis (Audiolivro completo)",
+    "description": "O clássico brasileiro narrado em PT-BR. Capitu traiu ou não traiu? Ouça e tire sua própria conclusão.",
+    "embedUrl": "https://www.youtube.com/embed/videoseries?list=PLvwc2YT9MFOmkPJoQzkGr8oDwb3CTMKFB",
+    "thumbnailUrl": "https://img.youtube.com/vi/PLvwc2YT9MFOmkPJoQzkGr8oDwb3CTMKFB/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "podcasts",
+    "language": "pt-BR",
+    "duration": "5:00:00"
+  },
+  {
+    "id": "librivox-little-prince",
+    "title": "The Little Prince — Audiobook (LibriVox)",
+    "description": "A obra mais traduzida da literatura francesa, narrada gratuitamente por voluntários do LibriVox.",
+    "embedUrl": "https://archive.org/embed/little_prince_librivox",
+    "thumbnailUrl": "https://archive.org/services/img/little_prince_librivox",
+    "platform": "archive",
+    "category": "podcasts",
+    "language": "en",
+    "duration": "1:39:00"
+  },
+  {
+    "id": "lex-fridman-sam-altman",
+    "title": "Sam Altman: OpenAI, GPT-5, Superintelligence — Lex Fridman",
+    "description": "Conversa profunda sobre o futuro da IA, AGI e o que o CEO da OpenAI pensa sobre consciência artificial.",
+    "embedUrl": "https://www.youtube.com/embed/jvqFAi7vkBc",
+    "thumbnailUrl": "https://img.youtube.com/vi/jvqFAi7vkBc/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "podcasts",
+    "language": "en",
+    "duration": "3:05:00"
+  },
+  {
+    "id": "gdc-talk-design-patterns",
+    "title": "Game Design Patterns — GDC Talk",
+    "description": "Uma das talks mais assistidas da GDC sobre padrões de design para jogos indie. Essencial para criadores.",
+    "embedUrl": "https://www.youtube.com/embed/G1bgHnbvFYI",
+    "thumbnailUrl": "https://img.youtube.com/vi/G1bgHnbvFYI/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "jogos",
+    "language": "en",
+    "duration": "28:00"
+  },
+  {
+    "id": "undertale-postmortem",
+    "title": "Undertale Postmortem — Toby Fox (GDC)",
+    "description": "Toby Fox conta como criou Undertale sozinho. Uma das histórias de desenvolvimento indie mais inspiradoras.",
+    "embedUrl": "https://www.youtube.com/embed/RRJFPnwkHHA",
+    "thumbnailUrl": "https://img.youtube.com/vi/RRJFPnwkHHA/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "jogos",
+    "language": "en",
+    "duration": "30:00"
+  },
+  {
+    "id": "making-of-stardew-valley",
+    "title": "Making of Stardew Valley — ConcernedApe",
+    "description": "Como Eric Barone passou 4 anos desenvolvendo sozinho um dos jogos indie mais amados de todos os tempos.",
+    "embedUrl": "https://www.youtube.com/embed/4-k6j9g5Hzk",
+    "thumbnailUrl": "https://img.youtube.com/vi/4-k6j9g5Hzk/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "jogos",
+    "language": "en",
+    "duration": "15:00"
+  },
+  {
+    "id": "ted-simon-sinek-why",
+    "title": "How Great Leaders Inspire Action — Simon Sinek (TED)",
+    "description": "Uma das TED Talks mais assistidas de todos os tempos. O conceito do Golden Circle que mudou o marketing.",
+    "embedUrl": "https://www.youtube.com/embed/qp0HIF3SfI4",
+    "thumbnailUrl": "https://img.youtube.com/vi/qp0HIF3SfI4/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "documentarios",
+    "language": "en",
+    "duration": "18:00"
+  },
+  {
+    "id": "kurzgesagt-universe",
+    "title": "The Entire History of the Universe (Kurzgesagt)",
+    "description": "Uma jornada visual pelo Big Bang, formação das galáxias e o destino final do universo. Ciência acessível.",
+    "embedUrl": "https://www.youtube.com/embed/ThDYazipjSI",
+    "thumbnailUrl": "https://img.youtube.com/vi/ThDYazipjSI/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "documentarios",
+    "language": "en",
+    "duration": "14:00"
+  },
+  {
+    "id": "mit-intro-computer-science",
+    "title": "Introduction to Computer Science — MIT OpenCourseWare",
+    "description": "A aula inaugural do MIT 6.0001 com John Guttag. Um dos melhores inícios para programação gratuito do mundo.",
+    "embedUrl": "https://www.youtube.com/embed/nykOeWgQcHM",
+    "thumbnailUrl": "https://img.youtube.com/vi/nykOeWgQcHM/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "documentarios",
+    "language": "en",
+    "duration": "51:00"
+  },
+  {
+    "id": "carl-sagan-cosmos",
+    "title": "Cosmos: A Personal Voyage — Ep. 1 (Carl Sagan)",
+    "description": "O episódio piloto da série que definiu o documentário científico. Carl Sagan navegando pelo cosmos.",
+    "embedUrl": "https://archive.org/embed/cosmos-a-personal-voyage-by-carl-sagan",
+    "thumbnailUrl": "https://archive.org/services/img/cosmos-a-personal-voyage-by-carl-sagan",
+    "platform": "archive",
+    "category": "documentarios",
+    "language": "en",
+    "duration": "1:00:00"
+  },
+  {
+    "id": "national-film-board-canada",
+    "title": "Of Time and the City — Terence Davies (Internet Archive)",
+    "description": "Documentário poético sobre Liverpool. Imagens de arquivo raras do século XX com narração literária.",
+    "embedUrl": "https://archive.org/embed/of_time_and_the_city",
+    "thumbnailUrl": "https://archive.org/services/img/of_time_and_the_city",
+    "platform": "archive",
+    "category": "filmes",
+    "language": "en",
+    "duration": "1:14:00"
+  },
+  {
+    "id": "crash-course-history-brazil",
+    "title": "História do Brasil — Canal Crash Course PT-BR",
+    "description": "A história do Brasil condensada de forma dinâmica e envolvente. Do descobrimento à república moderna.",
+    "embedUrl": "https://www.youtube.com/embed/GbePuGwOLiM",
+    "thumbnailUrl": "https://img.youtube.com/vi/GbePuGwOLiM/hqdefault.jpg",
+    "platform": "youtube",
+    "category": "documentarios",
+    "language": "pt-BR",
+    "duration": "14:00"
+  }
+]
