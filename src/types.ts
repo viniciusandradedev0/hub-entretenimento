@@ -33,15 +33,3 @@ export interface CategoryMeta {
   emoji: string
   icon: string
 }
-
-export interface FeaturedVideoItem {
-  id: string
-  title: string
-  description: string
-  embedUrl: string
-  thumbnailUrl: string
-  platform: 'youtube' | 'archive'
-  category: Category
-  language: Language
-  duration: string
-}

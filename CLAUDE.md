@@ -37,9 +37,9 @@
 - **Hospedagem:** GitHub Pages (deploy automático no push para `main`)
 
 ### ⚠️ Estado atual do projeto (atualizado 2026-05-18)
-- **Todos os 15 sprints do roadmap concluídos** + features extras (FeaturedVideo, Stats, Modo Teatro, Chip Novo)
+- **Todos os 15 sprints do roadmap concluídos** + features extras (Stats Pessoais, Chip "Novo")
 - Stack: **React 18 + Vite + Tailwind + TypeScript** — 100% client-side
-- **44 fontes** em `sources.json` + `18 vídeos curados` em `featured-videos.json`
+- **44 fontes** em `sources.json`, todas com o campo `lastVerified`
 - Antes de modificar qualquer componente, leia o arquivo para entender as props e interfaces TypeScript atuais (`Card.tsx` tem interface `CardProps` com 10 props)
 
 ### Restrições
@@ -65,7 +65,7 @@
 │   ├── App.tsx
 │   ├── main.tsx
 │   ├── i18n.ts              # react-i18next (pt/en)
-│   ├── types.ts             # Source, Collection, FeaturedVideoItem, CategoryMeta…
+│   ├── types.ts             # Source, Collection, CategoryMeta…
 │   ├── vite-env.d.ts        # tipos Vite + vite-plugin-pwa
 │   ├── components/
 │   │   ├── Card.tsx          # CardProps (10 props) + chip Novo + isShared
@@ -73,7 +73,6 @@
 │   │   ├── CollectionsPanel.tsx # + botão Share por coleção
 │   │   ├── DailyPick.tsx
 │   │   ├── FavoritesPanel.tsx
-│   │   ├── FeaturedVideo.tsx # iframe + thumbnail + modo teatro (atalho t)
 │   │   ├── FilterBar.tsx
 │   │   ├── Header.tsx        # + LangToggle + Share + Stats (📊)
 │   │   ├── LangToggle.tsx    # toggle PT-BR / EN
@@ -89,8 +88,7 @@
 │   │   └── UpdatePrompt.tsx  # banner de nova versão do PWA
 │   ├── data/
 │   │   ├── sources.json      # 44 fontes (fonte canônica para check-links)
-│   │   ├── sources.ts        # re-export tipado do JSON
-│   │   └── featured-videos.json # 18 vídeos curados (YouTube + Internet Archive)
+│   │   └── sources.ts        # re-export tipado do JSON
 │   ├── hooks/
 │   │   ├── useActiveSection.ts
 │   │   ├── useClickStats.ts
@@ -104,7 +102,7 @@
 │   │   └── useTheme.ts
 │   ├── lib/
 │   │   ├── categories.ts
-│   │   ├── daily.ts         # dayHash() exportada + getDailyPick()
+│   │   ├── daily.ts         # getDailyPick() — hash determinístico por data
 │   │   ├── highlight.tsx    # highlight(text, term): ReactNode
 │   │   ├── icons.ts         # 15 ícones registrados
 │   │   └── share.ts         # encodeShare / decodeShare / buildShareUrl
@@ -288,7 +286,7 @@ Veja o arquivo `ROADMAP.md` para o plano completo. Todos os 15 sprints foram con
 | Sprint | Tema | Status |
 |--------|------|--------|
 | 1–15 | Todos os sprints do roadmap | ✅ |
-| Extra | FeaturedVideo + Stats + Modo Teatro + Chip Novo | ✅ |
+| Extra | Stats Pessoais + Chip "Novo" | ✅ |
 
 ### Chaves de localStorage em uso
 | Chave | Hook/Origem | Conteúdo |
@@ -314,4 +312,4 @@ Veja o arquivo `ROADMAP.md` para o plano completo. Todos os 15 sprints foram con
 
 **Última atualização:** 2026-05-18
 **Mantenedor:** Vinicius
-**Estado:** Roadmap 100% concluído + features extras (FeaturedVideo, Stats Pessoais, Modo Teatro, Chip Novo)
+**Estado:** Roadmap 100% concluído + features extras (Stats Pessoais, Chip "Novo")

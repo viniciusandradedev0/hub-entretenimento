@@ -1,6 +1,6 @@
 # 🎬 Hub de Entretenimento Pessoal
 
-Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entretenimento — filmes, música, podcasts, jogos e documentários — com busca, favoritos, coleções, vídeo em destaque e muito mais.
+Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entretenimento — filmes, música, podcasts, jogos e documentários — com busca, favoritos, coleções e muito mais.
 
 [![CI](https://github.com/viniciusandradedev0/hub-entretenimento/actions/workflows/ci.yml/badge.svg)](https://github.com/viniciusandradedev0/hub-entretenimento/actions/workflows/ci.yml)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)
@@ -16,7 +16,6 @@ Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entrete
 ### Descoberta
 - 🎬 **5 categorias** — Filmes · Música · Podcasts/Audiolivros · Jogos · Documentários/Edu
 - ✨ **Fonte do dia** — destaque rotativo diário, determinístico por data
-- 🎥 **Vídeo em destaque** — iframe (YouTube / Internet Archive) com thumbnail lazy-load, rotação diária; sem autoplay
 - 🎲 **Surpreenda-me** — abre uma fonte aleatória do catálogo em nova aba
 
 ### Busca e filtros
@@ -40,8 +39,7 @@ Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entrete
 ### UX e Acessibilidade
 - 🧭 **NavBar** — sticky com indicador de seção ativa (Intersection Observer)
 - ⬆️ **Voltar ao topo** — botão flutuante após 400px de scroll
-- ⌨️ **Atalhos de teclado** — `/` · `Esc` · `f` · `t` (modo teatro do vídeo)
-- 🎭 **Modo Teatro** — overlay fullscreen para o vídeo em destaque (atalho `t`)
+- ⌨️ **Atalhos de teclado** — `/` · `Esc` · `f`
 - 🌗 **Dark/Light mode** — detecta preferência do sistema, toggle manual
 - 🌐 **i18n PT-BR / EN** — toggle de idioma no header
 - ♿ **Acessibilidade** — skip-to-content, focus trap em modais, ARIA live regions
@@ -80,7 +78,6 @@ Um dashboard web pessoal que centraliza fontes **gratuitas e legais** de entrete
 | Background | `#0a0a0f` | Fundo principal |
 | Surface | `#16161d` | Cards e painéis |
 | Primary | `#7c3aed` | Destaques, links, DailyPick |
-| Cyan | `#06b6d4` | FeaturedVideo |
 | Text | `#e5e5e5` | Texto principal |
 | Muted | `#9ca3af` | Texto secundário |
 
@@ -131,7 +128,6 @@ npm run check-links   # Verifica se todas as 44 URLs respondem
 | `/` | Foca o campo de busca |
 | `Esc` | Limpa a busca / fecha modal |
 | `f` | Abre/fecha o painel de favoritos |
-| `t` | Ativa/desativa modo teatro do vídeo em destaque (quando tocando) |
 
 ---
 
@@ -147,13 +143,12 @@ npm run check-links   # Verifica se todas as 44 URLs respondem
 │   ├── App.tsx             # Componente raiz — estado global e wiring
 │   ├── main.tsx            # Entry point
 │   ├── i18n.ts             # Configuração react-i18next
-│   ├── types.ts            # Interfaces centrais (Source, Collection, FeaturedVideoItem…)
+│   ├── types.ts            # Interfaces centrais (Source, Collection, CategoryMeta…)
 │   ├── vite-env.d.ts       # Tipos Vite + PWA
-│   ├── components/         # 20 componentes React (.tsx)
+│   ├── components/         # 19 componentes React (.tsx)
 │   ├── data/
 │   │   ├── sources.json    # 44 fontes curadas (fonte canônica)
-│   │   ├── sources.ts      # Re-export tipado do JSON
-│   │   └── featured-videos.json  # 18 vídeos curados
+│   │   └── sources.ts      # Re-export tipado do JSON
 │   ├── hooks/              # 10 hooks customizados (.ts)
 │   ├── lib/                # Utilitários: categories, daily, highlight, icons, share
 │   ├── locales/            # pt.json + en.json
@@ -194,28 +189,6 @@ Após adicionar, rode `npm run check-links` para validar a URL.
 
 ---
 
-## ➕ Adicionando vídeos em destaque
-
-Edite `src/data/featured-videos.json`:
-
-```json
-{
-  "id": "slug-unico",
-  "title": "Título do vídeo",
-  "description": "Descrição curta",
-  "embedUrl": "https://www.youtube.com/embed/VIDEO_ID",
-  "thumbnailUrl": "https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg",
-  "platform": "youtube",
-  "category": "documentarios",
-  "language": "en",
-  "duration": "14:00"
-}
-```
-
-Plataformas suportadas: `youtube` e `archive` (Internet Archive).
-
----
-
 ## 🗺️ Roadmap
 
 Todos os 15 sprints do roadmap foram concluídos. O projeto é considerado **feature-complete** para a v1.
@@ -224,7 +197,7 @@ Todos os 15 sprints do roadmap foram concluídos. O projeto é considerado **fea
 |------|--------|
 | Sprints 1–8: Quick wins, busca, modal, favoritos, coleções | ✅ |
 | Sprints 9–15: Compartilhamento, TypeScript, Testes, CI/CD, PWA, i18n | ✅ |
-| Features extras: FeaturedVideo, Stats, Modo Teatro, Chip Novo | ✅ |
+| Features extras: Stats Pessoais, Chip "Novo" | ✅ |
 
 ---
 

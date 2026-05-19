@@ -1,6 +1,6 @@
 import type { Source } from '../types.ts'
 
-export function dayHash(date = new Date()): number {
+function dayHash(date = new Date()): number {
   const y = date.getFullYear()
   const m = String(date.getMonth() + 1).padStart(2, '0')
   const d = String(date.getDate()).padStart(2, '0')

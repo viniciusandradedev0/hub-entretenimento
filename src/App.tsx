@@ -10,10 +10,8 @@ import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts.ts'
 import { useNotes } from './hooks/useNotes.ts'
 import { useClickStats } from './hooks/useClickStats.ts'
 import { useCollections } from './hooks/useCollections.ts'
-import { getDailyPick, dayHash } from './lib/daily.ts'
+import { getDailyPick } from './lib/daily.ts'
 import { decodeShare, buildShareUrl } from './lib/share.ts'
-import type { FeaturedVideoItem } from './types.ts'
-import featuredVideosRaw from './data/featured-videos.json'
 import { Header } from './components/Header.tsx'
 import { NavBar } from './components/NavBar.tsx'
 import { CategorySection } from './components/CategorySection.tsx'
@@ -27,13 +25,10 @@ import { BackToTop } from './components/BackToTop.tsx'
 import { SourceModal } from './components/SourceModal.tsx'
 import { CollectionsPanel } from './components/CollectionsPanel.tsx'
 import { UpdatePrompt } from './components/UpdatePrompt.tsx'
-import { FeaturedVideo } from './components/FeaturedVideo.tsx'
 import { StatsModal } from './components/StatsModal.tsx'
 
 // Calculado uma vez por carregamento — muda à meia-noite automaticamente
 const dailySource = getDailyPick(sourcesData)
-const featuredVideos = featuredVideosRaw as FeaturedVideoItem[]
-const dailyVideo = featuredVideos[dayHash() % featuredVideos.length] ?? null
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -235,9 +230,6 @@ export default function App() {
         <div className="space-y-6">
           {/* Destaque diário */}
           <DailyPick source={dailySource} onOpenModal={setModalSource} />
-
-          {/* Vídeo em destaque */}
-          <FeaturedVideo video={dailyVideo} />
 
           {/* Filtros */}
           <div className="space-y-1">
